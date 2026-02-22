@@ -30,15 +30,15 @@ const showcaseOutfits = [
         ]
     },
     {
-        name: "Essential Gradient",
-        description: "Muted tones blurring the line between casual and refined. Technical fabrics mixed with organic cotton.",
-        imageUrl: "https://images.unsplash.com/photo-1511216335778-7cb8f49fa7a3?q=80&w=1587&auto=format&fit=crop",
-        tags: ["technical", "layered", "subdued"],
+        name: "The Sharp Edit",
+        description: "Smart casual done right. A refined neutral palette elevated by precise tailoring and considered layering.",
+        imageUrl: "https://images.unsplash.com/photo-1613733539611-ca96d94b46ba?q=80&w=1587&auto=format&fit=crop",
+        tags: ["smart-casual", "tailored", "neutral"],
         isPrivate: false,
         itemsToFetch: [
-            { name: "Technical Shell Jacket", category: "UPPERWEAR", query: "grey technical jacket flat lay" },
-            { name: "Organic Cotton Tee", category: "UPPERWEAR", query: "white t-shirt flat lay" },
-            { name: "Articulated Cargo Pants", category: "LOWERWEAR", query: "grey cargo pants flat lay" }
+            { name: "Slim-Fit Chinos", category: "LOWERWEAR", query: "" },
+            { name: "Knit Polo Shirt", category: "UPPERWEAR", query: "" },
+            { name: "Suede Derby Shoes", category: "FOOTWEAR", query: "" }
         ]
     },
     {
