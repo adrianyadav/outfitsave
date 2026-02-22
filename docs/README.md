@@ -1,11 +1,10 @@
-[![Playwright Tests](https://github.com/adrianyadav/outfitsave/actions/workflows/playwright.yml/badge.svg)](https://github.com/adrianyadav/outfitsave/actions/workflows/playwright.yml)
+[![Playwright Tests](https://github.com/adrianyadav/unpacked/actions/workflows/playwright.yml/badge.svg)](https://github.com/adrianyadav/unpacked/actions/workflows/playwright.yml)
 
-[![Deployed](https://deploy-badge.vercel.app/vercel/outfitsavel)](https://www.outfitsave.com)
+[![Deployed](https://deploy-badge.vercel.app/vercel/unpacked)](https://www.unpacked.com)
 
+# unpacked - Fashion Outfit Management App
 
-# OutfitSave - Fashion Outfit Management App
-
-OutfitSave is a modern web application built with Next.js that helps users organize, save, and browse fashion outfits. Built with a responsive design and intuitive user interface, it provides a seamless experience for fashion enthusiasts to manage their wardrobe digitally.
+unpacked is a modern web application built with Next.js that helps users organize, save, and browse fashion outfits. Built with a responsive design and intuitive user interface, it provides a seamless experience for fashion enthusiasts to manage their wardrobe digitally.
 
 ## Features
 
@@ -21,12 +20,14 @@ OutfitSave is a modern web application built with Next.js that helps users organ
 ## Key Components
 
 ### Responsive Header
+
 - Mobile hamburger menu for smaller screens
 - Desktop horizontal navigation for larger screens
 - Smooth transitions and hover effects
 - User authentication status display
 
 ### Outfit Management
+
 - Browse all public outfits
 - Create and manage personal outfit collections
 - User-specific "My Outfits" section
@@ -118,7 +119,7 @@ Start the development server:
 npm run dev
 ```
 
-Once the server is running, visit `http://localhost:3000` to start using OutfitSave.
+Once the server is running, visit `http://localhost:3000` to start using unpacked.
 
 ## Project Structure
 

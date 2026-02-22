@@ -2,11 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import ImageUpload from "@/components/ui/image-upload";
-import { Plus, Shirt, PersonStanding, Clock } from "lucide-react";
+import { Plus, Shirt, PersonStanding } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { InputField, TextareaField } from "@/components/ui/form-fields";
 import { OutfitItemCard } from "@/components/ui/outfit-item-card";
@@ -146,31 +144,28 @@ export default function NewOutfitPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="min-h-screen bg-[var(--color-dark-grey)] text-white pt-32 pb-24 font-['var(--font-f-lausanne-400)']">
+            <div className="max-w-[2000px] mx-auto px-6 md:px-12 max-w-4xl lg:max-w-5xl">
                 {/* Header Section */}
-                <div className="mb-12">
-                    <h1 className="text-5xl md:text-6xl font-black text-foreground mb-6 leading-tight font-raleway">
-                        Save New <span className="text-gradient-royal">Outfit</span>
+                <div className="mb-16">
+                    <h1 className="text-[clamp(3rem,6vw,8rem)] leading-[0.85] font-['var(--font-f-lausanne-300)'] tracking-[-0.04em] whitespace-nowrap -ml-[0.05em] mb-4">
+                        Save Outfit
                     </h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
+                    <p className="text-[clamp(1rem,1.2vw,1.5rem)] text-[var(--color-white-06)]">
                         Create and organize your perfect outfit with all the details that matter
                     </p>
                 </div>
 
-                <Card className="shadow-xl border-0 bg-card/50 backdrop-blur-sm">
-                    <CardContent className="p-8">
-                        <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="border-t border-white/10 pt-12">
+                    <form onSubmit={handleSubmit} className="space-y-16">
                             {/* Basic Outfit Information */}
-                            <div className="space-y-6">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-8 h-8 bg-gradient-royal rounded-lg flex items-center justify-center">
-                                        <PersonStanding className="w-4 h-4 text-white" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-foreground font-raleway">Basic Information</h3>
+                            <div className="space-y-10">
+                                <div className="flex items-center gap-4 border-b border-white/10 pb-4">
+                                    <PersonStanding className="w-5 h-5 text-white/50" />
+                                    <h3 className="text-xl font-['var(--font-f-lausanne-300)'] uppercase tracking-widest text-white/50">Basic Information</h3>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     <InputField
                                         label="Outfit Name"
                                         required
@@ -204,9 +199,9 @@ export default function NewOutfitPage() {
                                     testId="outfit-description-textarea"
                                 />
 
-                                <div className="space-y-3">
-                                    <label className="text-sm font-semibold text-foreground">Outfit Image *</label>
-                                    <div className="border-2 border-dashed border-border/50 rounded-lg p-6 bg-muted/20">
+                                <div className="space-y-4">
+                                    <label className="uppercase tracking-widest text-[10px] text-[var(--color-white-06)]">Outfit Image *</label>
+                                    <div className="border border-dashed border-white/20 p-8 bg-white/5 relative overflow-hidden group hover:border-white/40 transition-colors">
                                         <ImageUpload
                                             onImageUpload={(imageUrl) => {
                                                 setFormData({
@@ -217,12 +212,12 @@ export default function NewOutfitPage() {
                                             currentImageUrl={formData.imageUrl}
                                         />
                                     </div>
-                                    <CardDescription className="text-sm text-muted-foreground/80">
-                                        An image is required to help visualize your outfit. Upload a photo or provide an image URL.
-                                    </CardDescription>
+                                    <p className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)] pt-2">
+                                        An image is required to visualize your outfit
+                                    </p>
                                 </div>
 
-                                <div className="flex items-center space-x-3 p-4 bg-muted/30 rounded-lg border border-border/50">
+                                <div className="flex items-center space-x-4 p-6 border border-white/10 bg-white/5 mt-8">
                                     <Checkbox
                                         id="isPrivate"
                                         checked={formData.isPrivate}
@@ -230,91 +225,80 @@ export default function NewOutfitPage() {
                                         data-testid="outfit-private-checkbox"
                                     />
                                     <div>
-                                        <label htmlFor="isPrivate" className="text-sm font-semibold text-foreground">Make this outfit private</label>
-                                        <CardDescription className="text-xs text-muted-foreground/80">
-                                            Private outfits are only visible to you and cannot be shared
-                                        </CardDescription>
+                                        <label htmlFor="isPrivate" className="font-['var(--font-f-lausanne-400)'] cursor-pointer">Make this outfit private</label>
+                                        <p className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)] mt-1">
+                                            Private outfits are only visible to you
+                                        </p>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Outfit Items */}
-                            <div className="space-y-6">
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 bg-gradient-royal rounded-lg flex items-center justify-center">
-                                            <Shirt className="w-4 h-4 text-white" />
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-foreground font-raleway">Outfit Items</h3>
+                            <div className="space-y-10">
+                                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                                    <div className="flex items-center gap-4">
+                                        <Shirt className="w-5 h-5 text-white/50" />
+                                        <h3 className="text-xl font-['var(--font-f-lausanne-300)'] uppercase tracking-widest text-white/50">Outfit Items</h3>
                                     </div>
-                                    <div className="flex gap-3">
+                                    <div className="flex gap-4">
                                         {previousItems.length > 0 && (
-                                            <Button
+                                            <button
                                                 type="button"
-                                                variant="outline"
-                                                size="lg"
                                                 onClick={() => setShowQuickAdd(!showQuickAdd)}
-                                                className="border-2 border-royal/30 text-royal hover:bg-royal hover:text-royal-foreground transition-all duration-300"
+                                                className="px-6 py-2 border border-white/20 text-white hover:bg-white hover:text-black transition-colors"
                                                 data-testid="quick-add-button"
                                                 disabled={isLoadingPreviousItems}
                                             >
-                                                <Clock className="h-5 w-5 mr-2" />
                                                 {isLoadingPreviousItems ? "Loading..." : "Quick Add"}
-                                            </Button>
+                                            </button>
                                         )}
-                                        <Button
+                                        <button
                                             type="button"
-                                            variant="outline"
-                                            size="lg"
                                             onClick={addItem}
-                                            className="border-2 border-royal/30 text-royal hover:bg-royal hover:text-royal-foreground transition-all duration-300 transform hover:scale-105"
+                                            className="px-6 py-2 border border-white/20 text-white hover:bg-white hover:text-black transition-colors flex items-center gap-2"
                                             data-testid="add-item-button"
                                         >
-                                            <Plus className="h-5 w-5 mr-2" />
+                                            <Plus className="h-4 w-4" />
                                             Add Item
-                                        </Button>
+                                        </button>
                                     </div>
                                 </div>
 
                                 {/* Quick Add Dropdown */}
                                 {showQuickAdd && previousItems.length > 0 && (
-                                    <Card className="p-4 border-2 border-royal/20 bg-card/50 shadow-lg" data-testid="quick-add-dropdown">
-                                        <CardDescription className="mb-3 text-foreground font-medium">
+                                    <div className="p-6 border border-white/10 bg-white/5" data-testid="quick-add-dropdown">
+                                        <p className="mb-4 text-sm text-[var(--color-white-06)]">
                                             Click on an item to add it to your outfit:
-                                        </CardDescription>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                        </p>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                             {previousItems.map((item, index) => (
-                                                <Button
+                                                <button
                                                     key={index}
                                                     type="button"
-                                                    variant="ghost"
                                                     onClick={() => handleAddItemFromPrevious(item)}
-                                                    className="justify-start text-left p-3 h-auto border border-border/50 hover:border-royal/50 hover:bg-royal/10 transition-all"
+                                                    className="justify-start text-left p-4 border border-white/10 hover:border-white/40 hover:bg-white/5 transition-colors"
                                                     data-testid={`quick-add-item-${index}`}
                                                 >
-                                                    <div className="flex flex-col items-start">
-                                                        <span className="font-medium text-foreground">{item.name}</span>
-                                                        <span className="text-xs text-muted-foreground">
+                                                    <div className="flex flex-col items-start gap-1">
+                                                        <span className="font-medium text-white">{item.name}</span>
+                                                        <span className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)]">
                                                             {item.category}
                                                         </span>
-                                                        <span className="text-xs text-royal">
+                                                        <span className="text-[10px] text-white/40 pt-2 border-t border-white/10 w-full mt-1">
                                                             Used {item.usageCount} time{item.usageCount !== 1 ? 's' : ''}
                                                         </span>
                                                     </div>
-                                                </Button>
+                                                </button>
                                             ))}
                                         </div>
-                                    </Card>
+                                    </div>
                                 )}
 
                                 {items.length === 0 && (
-                                    <div className="text-center py-12 bg-muted/20 rounded-lg border-2 border-dashed border-border/50">
-                                        <svg className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                                        </svg>
-                                        <CardDescription className="text-lg text-muted-foreground">
-                                            Add individual items to your outfit to track what you&apos;re wearing
-                                        </CardDescription>
+                                    <div className="text-center py-16 border border-dashed border-white/20">
+                                        <p className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)]">
+                                            No items added. Include individual pieces for tracking.
+                                        </p>
                                     </div>
                                 )}
 
@@ -330,39 +314,29 @@ export default function NewOutfitPage() {
                                 ))}
                             </div>
 
-                            <div className="flex justify-end space-x-4 pt-8 border-t border-border/50">
-                                <Button
+                            <div className="flex justify-between items-center pt-12 border-t border-white/10 mt-16">
+                                <button
                                     type="button"
-                                    variant="outline"
                                     onClick={() => router.back()}
-                                    className="px-8 py-3 border-2 border-border/50 hover:border-royal/30 text-foreground hover:text-royal transition-all duration-300"
+                                    className="px-8 py-4 border border-white/20 text-white hover:bg-white/10 transition-colors"
                                 >
                                     Cancel
-                                </Button>
-                                <Button
+                                </button>
+                                <button
                                     type="submit"
                                     disabled={isLoading}
-                                    className="px-8 py-3 bg-gradient-royal hover:bg-gradient-royal-light text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                                    className="px-8 py-4 bg-white text-black font-medium hover:bg-[var(--color-white-08)] transition-colors disabled:opacity-50"
                                     data-testid="save-outfit-button"
                                 >
                                     {isLoading ? (
-                                        <div className="flex items-center gap-2">
-                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                            Saving...
-                                        </div>
+                                        "Saving..."
                                     ) : (
-                                        <div className="flex items-center gap-2">
-                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            Save Outfit
-                                        </div>
+                                        "Save Outfit"
                                     )}
-                                </Button>
+                                </button>
                             </div>
                         </form>
-                    </CardContent>
-                </Card>
+                </div>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 # Google OAuth Setup Guide
 
-This guide will help you set up Google OAuth authentication for your OutfitSave application.
+This guide will help you set up Google OAuth authentication for your unpacked application.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ This guide will help you set up Google OAuth authentication for your OutfitSave 
 1. In the Google Cloud Console, go to "APIs & Services" > "OAuth consent screen"
 2. Choose "External" user type (unless you have a Google Workspace organization)
 3. Fill in the required information:
-   - App name: "OutfitSave"
+   - App name: "unpacked"
    - User support email: Your email address
    - Developer contact information: Your email address
 4. Add the following scopes:
@@ -82,6 +82,7 @@ The database schema has already been updated to support OAuth accounts. The migr
 ### Environment Variables
 
 Make sure these environment variables are set:
+
 - `GOOGLE_CLIENT_ID`
 - `GOOGLE_CLIENT_SECRET`
 - `NEXTAUTH_SECRET` (for session encryption)
@@ -123,4 +124,4 @@ For end-to-end testing with OAuth:
 
 - [NextAuth.js Documentation](https://next-auth.js.org/)
 - [Google OAuth 2.0 Documentation](https://developers.google.com/identity/protocols/oauth2)
-- [Google Cloud Console](https://console.cloud.google.com/) 
+- [Google Cloud Console](https://console.cloud.google.com/)

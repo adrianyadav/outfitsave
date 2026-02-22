@@ -4,10 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -85,18 +83,19 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8">
-      <Card className="max-w-md w-full">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl text-center">Create your account</CardTitle>
-          <CardDescription className="text-center">
+    <div className="min-h-screen flex items-center justify-center bg-[var(--color-dark-grey)] text-white py-12 px-4 sm:px-6 lg:px-8 font-['var(--font-f-lausanne-400)']">
+      <div className="max-w-md w-full p-8 border border-white/10 bg-white/5 relative overflow-hidden group">
+        <div className="space-y-4 mb-8 text-center relative z-10">
+          <h1 className="text-3xl font-['var(--font-f-lausanne-300)']">Create account</h1>
+          <p className="text-sm text-[var(--color-white-06)]">
             Enter your details to create a new account
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          </p>
+        </div>
+        
+        <div className="relative z-10">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-2">
-              <Label htmlFor="name">Full name</Label>
+              <Label htmlFor="name" className="uppercase tracking-widest text-[10px] text-[var(--color-white-06)]">Full name</Label>
               <Input
                 id="name"
                 name="name"
@@ -105,10 +104,11 @@ export default function RegisterPage() {
                 placeholder="Enter your full name"
                 data-testid="name-input"
                 disabled={isLoading}
+                className="bg-transparent border-white/20 text-white placeholder:text-white/20 rounded-none focus-visible:ring-1 focus-visible:ring-white focus-visible:border-white h-12"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email address</Label>
+              <Label htmlFor="email" className="uppercase tracking-widest text-[10px] text-[var(--color-white-06)]">Email address</Label>
               <Input
                 id="email"
                 name="email"
@@ -117,10 +117,11 @@ export default function RegisterPage() {
                 placeholder="Enter your email"
                 data-testid="email-input"
                 disabled={isLoading}
+                className="bg-transparent border-white/20 text-white placeholder:text-white/20 rounded-none focus-visible:ring-1 focus-visible:ring-white focus-visible:border-white h-12"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="uppercase tracking-widest text-[10px] text-[var(--color-white-06)]">Password</Label>
               <Input
                 id="password"
                 name="password"
@@ -129,38 +130,43 @@ export default function RegisterPage() {
                 placeholder="Enter your password"
                 data-testid="password-input"
                 disabled={isLoading}
+                className="bg-transparent border-white/20 text-white placeholder:text-white/20 rounded-none focus-visible:ring-1 focus-visible:ring-white focus-visible:border-white h-12"
               />
             </div>
 
             {error && (
-              <div className="text-destructive text-sm text-center" data-testid="error-message">{error}</div>
+              <div className="text-red-400 text-sm text-center" data-testid="error-message">{error}</div>
             )}
 
-            <Button type="submit" className="w-full" disabled={isLoading} data-testid="submit-button">
+            <button 
+                type="submit" 
+                className="w-full h-12 bg-white text-black font-medium hover:bg-[var(--color-white-08)] transition-colors disabled:opacity-50 mt-4" 
+                disabled={isLoading} 
+                data-testid="submit-button"
+            >
               {isLoading ? "Creating account..." : "Register"}
-            </Button>
+            </button>
           </form>
 
           {/* Divider */}
-          <div className="relative my-6">
+          <div className="relative my-8">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t" />
+              <span className="w-full border-t border-white/10" />
             </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+            <div className="relative flex justify-center text-[10px] uppercase tracking-widest">
+              <span className="bg-[#111] px-4 text-[var(--color-white-06)]">Or</span>
             </div>
           </div>
 
           {/* Google Sign In Button */}
-          <Button
+          <button
             type="button"
-            variant="outline"
-            className="w-full"
+            className="w-full h-12 border border-white/20 bg-transparent text-white hover:bg-white/5 transition-colors disabled:opacity-50 flex items-center justify-center font-medium"
             onClick={handleGoogleSignIn}
             disabled={isLoading}
             data-testid="google-signin-button"
           >
-            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
+            <svg className="mr-3 h-4 w-4" viewBox="0 0 24 24">
               <path
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                 fill="#4285F4"
@@ -178,18 +184,16 @@ export default function RegisterPage() {
                 fill="#EA4335"
               />
             </svg>
-            {isLoading ? "Signing in..." : "Sign in with Google"}
-          </Button>
+            {isLoading ? "Signing in..." : "Google"}
+          </button>
 
-          <div className="text-center mt-4">
-            <Button asChild variant="link">
-              <Link href="/login" data-testid="login-link">
-                Already have an account? Sign in
-              </Link>
-            </Button>
+          <div className="text-center mt-8">
+            <Link href="/login" className="text-sm text-[var(--color-white-06)] hover:text-white transition-colors" data-testid="login-link">
+              Already have an account? Sign in
+            </Link>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }

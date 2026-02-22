@@ -3,9 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import OutfitCard from "@/components/ui/outfit-card";
-import { TShirtIcon } from '@/components/ui/tshirt-icon';
 import { useSession } from "next-auth/react";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -151,22 +149,18 @@ function MyOutfitsList() {
             ) : (
                 <>
                     {outfits.length === 0 ? (
-                        <div className="text-center space-y-6 py-12" data-testid="no-outfits-message">
-                            <div className="w-16 h-16 bg-muted/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <TShirtIcon className="w-8 h-8 text-muted-foreground" />
-                            </div>
-                            <h3 className="text-xl font-semibold text-foreground">No outfits yet</h3>
-                            <p className="text-muted-foreground max-w-md mx-auto">
+                        <div className="text-center space-y-8 py-32 border-t border-white/10 mt-12" data-testid="no-outfits-message">
+                            <h3 className="text-[clamp(2rem,4vw,4rem)] leading-none font-['var(--font-f-lausanne-300)'] tracking-[-0.02em] text-white">No outfits yet</h3>
+                            <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-[var(--color-white-06)] font-['var(--font-f-lausanne-400)'] max-w-2xl mx-auto">
                                 You haven&apos;t created any outfits yet. Start building your fashion collection!
                             </p>
-                            <Button asChild className="bg-gradient-royal hover:bg-gradient-royal-light text-white transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
-                                <Link href="/outfits/new" className="flex items-center gap-2" data-testid="create-first-outfit-button">
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                                    </svg>
-                                    Create Your First Outfit
-                                </Link>
-                            </Button>
+                            <Link 
+                                href="/outfits/new" 
+                                className="inline-flex items-center justify-center px-8 py-4 bg-white text-black rounded-full font-['var(--font-f-lausanne-400)'] hover:bg-[var(--color-white-08)] transition-colors hover:scale-[1.02] active:scale-[0.98]" 
+                                data-testid="create-first-outfit-button"
+                            >
+                                Create Your First Outfit
+                            </Link>
                         </div>
                     ) : (
                         <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8" data-testid="outfits-grid">
@@ -188,31 +182,25 @@ function MyOutfitsList() {
 
                     {/* Pagination Controls */}
                     {totalPages > 1 && (
-                        <div className="flex justify-center space-x-4 mt-12">
+                        <div className="flex justify-center items-center space-x-6 mt-20 pt-10 border-t border-white/10 font-['var(--font-f-lausanne-400)']">
                             {page > 1 && (
-                                <Button asChild variant="outline" className="border-royal/30 text-royal hover:bg-royal hover:text-white transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md">
-                                    <Link href={`/my-outfits?page=${page - 1}`} className="flex items-center gap-2">
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                        </svg>
-                                        Previous
-                                    </Link>
-                                </Button>
+                                <Link 
+                                    href={`/my-outfits?page=${page - 1}`} 
+                                    className="px-6 py-3 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all flex items-center gap-2"
+                                >
+                                    Previous
+                                </Link>
                             )}
-                            <div className="flex items-center px-4 py-2 bg-muted/50 rounded-lg border border-border/50">
-                                <span className="text-sm text-muted-foreground">
-                                    Page {page} of {totalPages}
-                                </span>
+                            <div className="text-[var(--color-white-06)]">
+                                Page <span className="text-white">{page}</span> of {totalPages}
                             </div>
                             {page < totalPages && (
-                                <Button asChild variant="outline" className="border-royal/30 text-royal hover:bg-royal hover:text-white transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md">
-                                    <Link href={`/my-outfits?page=${page + 1}`} className="flex items-center gap-2">
-                                        Next
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </Link>
-                                </Button>
+                                <Link 
+                                    href={`/my-outfits?page=${page + 1}`} 
+                                    className="px-6 py-3 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all flex items-center gap-2"
+                                >
+                                    Next
+                                </Link>
                             )}
                         </div>
                     )}
@@ -224,27 +212,26 @@ function MyOutfitsList() {
 
 export default function MyOutfitsPage() {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="min-h-screen bg-[var(--color-dark-grey)] text-white pt-32 pb-24">
+            <div className="max-w-[2000px] mx-auto px-6 md:px-12">
                 {/* Header Section */}
-                <div className="mb-12">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-6">
-                        <div>
-                            <h1 className="text-5xl md:text-6xl font-black text-foreground mb-6 leading-tight">
-                                My <span className="text-gradient-royal">Outfits</span>
+                <div className="mb-20">
+                    <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+                        <div className="flex-1">
+                            <h1 className="text-[clamp(4rem,10vw,12rem)] leading-[0.85] font-['var(--font-f-lausanne-300)'] tracking-[-0.04em] whitespace-nowrap -ml-[0.05em] mb-8">
+                                Outfits
                             </h1>
-                            <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                                Manage and organize your personal fashion collection. Create, edit, and share your favorite styles.
+                            <p className="text-[clamp(1.2rem,2vw,2.5rem)] leading-[1.3] font-['var(--font-f-lausanne-400)'] font-light max-w-2xl lg:max-w-4xl text-[var(--color-white-06)]">
+                                Manage and organize your personal collection.<br className="hidden md:block" /> Create, edit, and share your favorite styles.
                             </p>
                         </div>
-                        <Button asChild size="lg" className="bg-gradient-royal hover:bg-gradient-royal-light text-white transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg px-8 py-6 text-lg">
-                            <Link href="/outfits/new" className="flex items-center gap-2" data-testid="create-new-outfit-button">
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                                </svg>
-                                Create New Outfit
-                            </Link>
-                        </Button>
+                        <Link 
+                            href="/outfits/new" 
+                            className="mt-8 lg:mt-0 self-start lg:self-end flex items-center justify-center px-8 py-4 bg-white text-black rounded-full font-['var(--font-f-lausanne-400)'] hover:bg-[var(--color-white-08)] transition-colors hover:scale-[1.02] active:scale-[0.98]"
+                            data-testid="create-new-outfit-button"
+                        >
+                            Create New Outfit
+                        </Link>
                     </div>
                 </div>
 

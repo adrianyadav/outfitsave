@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
                 );
             }
 
-            const blobFileName = `outfitsave/${fileName}`;
+            const blobFileName = `unpacked/${fileName}`;
             const blob = await put(blobFileName, file, {
                 access: 'public',
             });

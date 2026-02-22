@@ -45,12 +45,12 @@ export function InputField({
     ...props
 }: InputFieldProps) {
     return (
-        <div className={`space-y-3 ${className}`}>
-            <Label className="text-sm font-semibold text-foreground">
+        <div className={`space-y-2 ${className}`}>
+            <Label className="uppercase tracking-widest text-[10px] text-[var(--color-white-06)]">
                 {label} {required && "*"}
             </Label>
             <Input
-                className="h-12 text-lg border-2 border-border/50 focus:border-royal transition-colors"
+                className="bg-transparent border-white/20 text-white placeholder:text-white/20 rounded-none focus-visible:ring-1 focus-visible:ring-white focus-visible:border-white h-12"
                 data-testid={testId}
                 {...props}
             />
@@ -66,12 +66,12 @@ export function TextareaField({
     ...props
 }: TextareaFieldProps) {
     return (
-        <div className={`space-y-3 ${className}`}>
-            <Label className="text-sm font-semibold text-foreground">
+        <div className={`space-y-2 ${className}`}>
+            <Label className="uppercase tracking-widest text-[10px] text-[var(--color-white-06)]">
                 {label} {required && "*"}
             </Label>
             <Textarea
-                className="text-lg border-2 border-border/50 focus:border-royal transition-colors resize-none"
+                className="bg-transparent border-white/20 text-white placeholder:text-white/20 rounded-none focus-visible:ring-1 focus-visible:ring-white focus-visible:border-white min-h-[120px] resize-none"
                 data-testid={testId}
                 {...props}
             />
@@ -87,20 +87,21 @@ export function CategorySelectField({
     ...props
 }: SelectFieldProps) {
     return (
-        <div className={`space-y-3 ${className}`}>
-            <Label className="text-sm font-semibold text-foreground">
+        <div className={`space-y-2 ${className}`}>
+            <Label className="uppercase tracking-widest text-[10px] text-[var(--color-white-06)]">
                 {label} {required && "*"}
             </Label>
             <Select {...props}>
-                <SelectTrigger className="h-12 border-2 border-border/50 focus:border-royal transition-colors" data-testid={testId}>
-                    <SelectValue placeholder="Select category" />
+                <SelectTrigger className="bg-transparent border-white/20 text-white rounded-none focus:ring-1 focus:ring-white h-12" data-testid={testId}>
+                    <SelectValue placeholder={<span className="text-white/20">Select category</span>} />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-[#111] border border-white/10 text-white rounded-none">
                     {ITEM_CATEGORIES.map((category) => (
                         <SelectItem
                             key={category.value}
                             value={category.value}
                             data-testid={`${testId?.replace('-select-', '-option-')}-${category.value}`}
+                            className="hover:bg-white/10 cursor-pointer rounded-none"
                         >
                             {category.label}
                         </SelectItem>

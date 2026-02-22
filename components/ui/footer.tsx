@@ -14,7 +14,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
                     <p className="text-sm text-muted-foreground">
-                        © 2025 OutfitSave. All rights reserved.
+                        © 2026 unpacked. All rights reserved.
                     </p>
                     <div className="flex items-center gap-4 mt-4 md:mt-0">
                         <span className="text-sm text-muted-foreground">Made with ❤️ for fashion lovers</span>

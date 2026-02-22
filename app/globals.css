@@ -35,6 +35,65 @@
     --royal-foreground: 210 100% 95%;
     --royal-light: 210 100% 30%;
     --royal-dark: 210 100% 15%;
+
+    /* Reference Design Tokens */
+    --color-white: #fff;
+    --color-white-02: hsla(0, 0%, 100%, 0.2);
+    --color-white-04: hsla(0, 0%, 100%, 0.4);
+    --color-white-06: hsla(0, 0%, 100%, 0.6);
+    --color-white-08: hsla(0, 0%, 100%, 0.8);
+    --color-off-white: #f8f8f8;
+    --color-off-white-02: hsla(0, 0%, 97%, 0.2);
+    --color-off-white-04: hsla(0, 0%, 97%, 0.4);
+    --color-off-white-06: hsla(0, 0%, 97%, 0.6);
+    --color-off-white-08: hsla(0, 0%, 97%, 0.8);
+    --color-story: #070707;
+    --color-dark-grey: #0d0e13;
+    --color-dark-grey-02: rgba(13, 14, 19, 0.2);
+    --color-dark-grey-04: rgba(13, 14, 19, 0.4);
+    --color-dark-grey-06: rgba(13, 14, 19, 0.6);
+    --color-dark-grey-08: rgba(13, 14, 19, 0.8);
+    --color-light-grey: #e4e0db;
+    --color-light-grey-02: hsla(33, 14%, 88%, 0.2);
+    --color-light-grey-06: hsla(33, 14%, 88%, 0.6);
+    --color-light-grey-08: hsla(33, 14%, 88%, 0.8);
+    --color-sand: #e0ccbb;
+    --color-sand-06: hsla(28, 37%, 81%, 0.6);
+    --color-sand-08: hsla(28, 37%, 81%, 0.8);
+    --font-f-lausanne-300: var(--font-inter), sans-serif;
+    --font-f-lausanne-400: var(--font-inter), sans-serif;
+    --font-f-lausanne-500: var(--font-inter), sans-serif;
+    --font-s-h0: 17.3611111111vw;
+    --font-lh-h0: 15.6944444444vw;
+    --font-ls-h0: -0.7986111111vw;
+    --font-s-h1: 10vw;
+    --font-lh-h1: 10vw;
+    --font-ls-h1: -0.3472222222vw;
+    --font-s-h2: 3.6111111111vw;
+    --font-lh-h2: 4.4444444444vw;
+    --font-ls-h2: -0.1041666667vw;
+    --font-s-h3: 2.2222222222vw;
+    --font-lh-h3: 2.7777777778vw;
+    --font-ls-h3: -0.0069444444vw;
+    --font-s-h4: 1.6666666667vw;
+    --font-lh-h4: 2.2222222222vw;
+    --font-ls-h4: 0vw;
+    --font-s-p: 1.1111111111vw;
+    --font-lh-p: 1.6666666667vw;
+    --font-ls-p: 0.0069444444vw;
+    --font-s-subtitle: 0.8333333333vw;
+    --font-lh-subtitle: 1.1111111111vw;
+    --font-ls-subtitle: 0.0069444444vw;
+    --font-s-p-small: 0.9722222222vw;
+    --font-lh-p-small: 1.4583333333vw;
+    --font-ls-p-small: 0.0069444444vw;
+    --font-s-cta: 1.1111111111vw;
+    --font-lh-cta: 1.1111111111vw;
+    --font-ls-cta: 0vw;
+    --font-s-label: 0.9722222222vw;
+    --font-lh-label: 0.9722222222vw;
+    --font-ls-label: 0vw;
+    --vh: 8.87px;
   }
 
   .dark {
@@ -77,22 +136,34 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   }
 }
 
 /* Deep navy blue gradient utilities */
 @layer utilities {
   .bg-gradient-royal {
-    background: linear-gradient(135deg, hsl(var(--royal)) 0%, hsl(var(--royal-dark)) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(var(--royal)) 0%,
+      hsl(var(--royal-dark)) 100%
+    );
   }
-  
+
   .bg-gradient-royal-light {
-    background: linear-gradient(135deg, hsl(var(--royal-light)) 0%, hsl(var(--royal)) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(var(--royal-light)) 0%,
+      hsl(var(--royal)) 100%
+    );
   }
-  
+
   .text-gradient-royal {
-    background: linear-gradient(135deg, hsl(var(--royal)) 0%, hsl(var(--royal-dark)) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(var(--royal)) 0%,
+      hsl(var(--royal-dark)) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -101,20 +172,21 @@
 
 /* Typography Utilities */
 .font-heading {
-  font-family: 'Raleway', ui-sans-serif, system-ui, sans-serif;
+  font-family: "Raleway", ui-sans-serif, system-ui, sans-serif;
 }
 
 .font-body {
-  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 h1 {
-  font-family: 'Raleway', ui-sans-serif, system-ui, sans-serif !important;
+  font-family: "Raleway", ui-sans-serif, system-ui, sans-serif !important;
 }
 
 /* Custom Animations for Hero Section */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -123,7 +195,8 @@ h1 {
 }
 
 @keyframes float-delayed {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -132,7 +205,8 @@ h1 {
 }
 
 @keyframes float-slow {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -141,7 +215,8 @@ h1 {
 }
 
 @keyframes pulse-delayed {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -203,7 +278,8 @@ h1 {
 }
 
 @keyframes gradient {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -271,7 +347,12 @@ h1 {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
