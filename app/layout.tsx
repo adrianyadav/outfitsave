@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "OutfitSave",
+  title: "unpacked",
   description: "Save and organize your favorite outfits",
 };
 

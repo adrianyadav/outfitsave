@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
 import { Menu, X } from "lucide-react";
 
@@ -12,75 +11,52 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isDevelopment = process.env.NODE_ENV === 'development';
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <header className="w-full bg-background/95 backdrop-blur-sm border-b border-border/50 shadow-lg py-4 px-4 sm:px-6 lg:px-8 sticky top-0 z-50">
-      <nav className="flex justify-between items-center">
-        <Logo variant="header" />
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/80 backdrop-blur-xl border-b border-white/5 py-5 text-white px-6 md:px-12">
+      <nav className="flex justify-between items-center font-[var(--font-f-lausanne-400)] text-[var(--font-s-p-small)] max-w-[2000px] mx-auto">
+        <Logo variant="header" className="text-white" />
 
         {/* Desktop Navigation - Hidden on mobile */}
-        <div className="hidden md:flex items-center space-x-4">
-          <Button asChild variant="outline" className="border-royal/30 text-royal hover:bg-royal hover:text-white transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md">
-            <Link href="/outfits">
-              Browse
-            </Link>
-          </Button>
+        <div className="hidden md:flex items-center space-x-12 tracking-wide">
+          <Link href="/outfits" className="hover:opacity-70 transition-opacity">
+            Browse
+          </Link>
           {session ? (
             <>
-              <Button asChild variant="outline" className="border-royal/30 text-royal hover:bg-royal hover:text-white transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md">
-                <Link href="/my-outfits">
-                  My Outfits
-                </Link>
-              </Button>
-              <div className="flex items-center space-x-4">
-
-                <Button asChild variant="outline" className="border-royal/30 text-royal hover:bg-royal hover:text-white transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md">
-                  <Link href="/settings">
-                    Settings
-                  </Link>
-                </Button>
-                <Button
-                  data-testid="logout-button"
-                  onClick={() => signOut()}
-                  variant="destructive"
-                  className="bg-gradient-royal hover:bg-gradient-royal-light text-white transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
-                >
-                  Sign Out
-                </Button>
-              </div>
-              <div className="text-sm px-3 py-2">
-                Welcome, {session.user?.name && <div className="font-medium">{session.user.name}</div>}
-              </div>
+              <Link href="/my-outfits" className="hover:opacity-70 transition-opacity">
+                My Outfits
+              </Link>
+              <Link href="/settings" className="hover:opacity-70 transition-opacity">
+                Settings
+              </Link>
+              <button
+                data-testid="logout-button"
+                onClick={() => signOut()}
+                className="hover:opacity-70 transition-opacity cursor-pointer"
+              >
+                Sign Out
+              </button>
             </>
           ) : (
-            <Button asChild className="bg-gradient-royal hover:bg-gradient-royal-light text-white transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
-              <Link href="/login">
-                Sign In
-              </Link>
-            </Button>
+            <Link href="/login" className="hover:opacity-70 transition-opacity">
+              Sign In
+            </Link>
           )}
 
-          {/* Development-only docs link */}
           {isDevelopment && (
-            <Button asChild variant="outline" className="border-orange-300 text-orange-600 hover:bg-orange-50 transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md">
-              <Link href="/docs">
-                📚 Docs
-              </Link>
-            </Button>
+            <Link href="/docs" className="hover:opacity-70 transition-opacity text-white/50">
+              Docs
+            </Link>
           )}
         </div>
 
         {/* Mobile Menu Button - Visible only on mobile */}
         <button
           onClick={toggleMobileMenu}
-          className="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors"
+          className="md:hidden p-2 -mr-2 rounded-md hover:opacity-70 transition-opacity"
           aria-label="Toggle mobile menu"
         >
           {isMobileMenuOpen ? (
@@ -93,81 +69,41 @@ export default function Header() {
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border/50 shadow-lg">
-          <div className="px-4 py-6 space-y-4">
-            <Button
-              asChild
-              variant="outline"
-              className="w-full justify-center border-royal/30 text-royal hover:bg-royal hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
-              onClick={closeMobileMenu}
-            >
-              <Link href="/outfits">
-                Browse
-              </Link>
-            </Button>
+        <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-t border-white/10 h-screen">
+          <div className="px-6 py-8 flex flex-col space-y-6 text-white text-lg font-[var(--font-f-lausanne-400)]">
+            <Link href="/outfits" onClick={closeMobileMenu} className="hover:opacity-70 transition-opacity">
+              Browse
+            </Link>
 
             {session ? (
               <>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full justify-center border-royal/30 text-royal hover:bg-royal hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
-                  onClick={closeMobileMenu}
+                <Link href="/my-outfits" onClick={closeMobileMenu} className="hover:opacity-70 transition-opacity">
+                  My Outfits
+                </Link>
+                <Link href="/settings" onClick={closeMobileMenu} className="hover:opacity-70 transition-opacity">
+                  Settings
+                </Link>
+                <button
+                  data-testid="logout-button-mobile"
+                  onClick={() => {
+                    signOut();
+                    closeMobileMenu();
+                  }}
+                  className="text-left hover:opacity-70 transition-opacity"
                 >
-                  <Link href="/my-outfits">
-                    My Outfits
-                  </Link>
-                </Button>
-
-                <div className="space-y-4">
-
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full justify-center border-royal/30 text-royal hover:bg-royal hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
-                    onClick={closeMobileMenu}
-                  >
-                    <Link href="/settings">
-                      Settings
-                    </Link>
-                  </Button>
-                  <Button
-                    data-testid="logout-button-mobile"
-                    onClick={() => {
-                      signOut();
-                      closeMobileMenu();
-                    }}
-                    variant="destructive"
-                    className="w-full justify-center bg-gradient-royal hover:bg-gradient-royal-light text-white transition-all duration-300 shadow-md hover:shadow-lg"
-                  >
-                    Sign Out
-                  </Button>
-                </div>
+                  Sign Out
+                </button>
               </>
             ) : (
-              <Button
-                asChild
-                className="w-full justify-center bg-gradient-royal hover:bg-gradient-royal-light text-white transition-all duration-300 shadow-md hover:shadow-lg"
-                onClick={closeMobileMenu}
-              >
-                <Link href="/login">
-                  Sign In
-                </Link>
-              </Button>
+              <Link href="/login" onClick={closeMobileMenu} className="hover:opacity-70 transition-opacity">
+                Sign In
+              </Link>
             )}
 
-            {/* Development-only docs link for mobile */}
             {isDevelopment && (
-              <Button
-                asChild
-                variant="outline"
-                className="w-full justify-center border-orange-300 text-orange-600 hover:bg-orange-50 transition-all duration-300 shadow-sm hover:shadow-md"
-                onClick={closeMobileMenu}
-              >
-                <Link href="/docs">
-                  📚 Docs
-                </Link>
-              </Button>
+              <Link href="/docs" onClick={closeMobileMenu} className="opacity-50 hover:opacity-100 transition-opacity mt-4 border-t border-white/20 pt-4">
+                Docs
+              </Link>
             )}
           </div>
         </div>

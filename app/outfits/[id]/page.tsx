@@ -5,14 +5,11 @@ import { useRouter } from "next/navigation";
 import { use } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import EditOutfitModal from "@/components/ui/edit-outfit-modal";
-import { useToast } from "@/components/ui/use-toast";
 import { ArrowLeft } from "lucide-react";
-import { sortItemsByCategory, getCategoryColors } from "@/lib/constants";
+import { sortItemsByCategory } from "@/lib/constants";
 import { useSession } from "next-auth/react";
+import { useToast } from "@/components/ui/use-toast";
+import EditOutfitModal from "@/components/ui/edit-outfit-modal";
 
 interface OutfitItem {
     id: number;
@@ -172,36 +169,33 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
 
     if (isLoading) {
         return (
-            <div className="min-h-screen bg-background flex items-center justify-center">
-                <div data-testid="loading-spinner" className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-                <p className="ml-3 text-muted-foreground">Loading outfit...</p>
+            <div className="min-h-screen bg-[var(--color-dark-grey)] flex items-center justify-center">
+                <div data-testid="loading-spinner" className="w-10 h-10 border-4 border-white/20 border-t-white rounded-full animate-spin"></div>
             </div>
         );
     }
 
     if (!outfit) {
         return (
-            <div className="min-h-screen bg-background flex items-center justify-center">
-                <p className="text-muted-foreground">Outfit not found.</p>
+            <div className="min-h-screen bg-[var(--color-dark-grey)] flex items-center justify-center">
+                <p className="text-[var(--color-white-06)] font-['var(--font-f-lausanne-400)']">Outfit not found.</p>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-background p-8">
-            <div className="max-w-4xl mx-auto">
+        <div className="min-h-screen bg-[var(--color-dark-grey)] text-white pt-32 pb-24 font-['var(--font-f-lausanne-400)']">
+            <div className="max-w-[2000px] mx-auto px-6 md:px-12 max-w-6xl">
                 {/* Header with actions */}
-                <div className="mb-8">
-                    <div className="flex items-center justify-between mb-4">
-                        <Button asChild variant="outline" className="w-fit">
-                            <Link href="/my-outfits" className="flex items-center gap-2">
-                                <ArrowLeft className="h-4 w-4" />
-                                Back
-                            </Link>
-                        </Button>
+                <div className="mb-16">
+                    <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+                        <Link href="/my-outfits" className="flex items-center gap-2 text-sm text-[var(--color-white-06)] hover:text-white transition-colors uppercase tracking-widest">
+                            <ArrowLeft className="h-4 w-4" />
+                            Back to Outfits
+                        </Link>
 
                         {/* Action buttons */}
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-4">
                             {isOwned ? (
                                 <>
                                     <EditOutfitModal
@@ -209,99 +203,94 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
                                         onOutfitUpdated={handleOutfitUpdated}
                                     />
                                     {!outfit.isPrivate && (
-                                        <Button
-                                            variant="outline"
-                                            size="sm"
+                                        <button
                                             onClick={handleShare}
                                             disabled={isSharing}
-                                            className="border-royal/30 text-royal hover:bg-royal hover:text-white transition-all duration-300 h-9"
+                                            className="px-6 py-2 border border-white/20 text-white hover:bg-white hover:text-black transition-colors"
                                             data-testid="share-outfit-button"
                                         >
                                             {isSharing ? "Sharing..." : "Share"}
-                                        </Button>
+                                        </button>
                                     )}
                                 </>
                             ) : (
                                 <>
                                     {!outfit.isPrivate && (
-                                        <Button
-                                            variant="outline"
-                                            size="sm"
+                                        <button
                                             onClick={handleShare}
                                             disabled={isSharing}
-                                            className="border-royal/30 text-royal hover:bg-royal hover:text-white transition-all duration-300 h-9"
+                                            className="px-6 py-2 border border-white/20 text-white hover:bg-white hover:text-black transition-colors"
                                             data-testid="share-outfit-button"
                                         >
                                             {isSharing ? "Sharing..." : "Share"}
-                                        </Button>
+                                        </button>
                                     )}
                                     {!outfit.isPrivate && session && (
-                                        <Button
-                                            variant="default"
-                                            size="sm"
+                                        <button
                                             onClick={handleSaveOutfit}
                                             disabled={isSaving}
-                                            className="bg-royal hover:bg-royal/90 flex items-center gap-2 h-9"
+                                            className="px-6 py-2 bg-white text-black font-medium hover:bg-[var(--color-white-08)] transition-colors disabled:opacity-50"
                                             data-testid="save-to-my-outfits-button"
                                         >
-                                            {isSaving ? "Saving..." : "Save"}
-                                        </Button>
+                                            {isSaving ? "Saving..." : "Save to My Outfits"}
+                                        </button>
                                     )}
                                 </>
                             )}
                         </div>
                     </div>
 
-                    <h1 className="text-4xl font-bold mb-2 font-raleway">{outfit.name}</h1>
-                    {outfit.user?.name && (
-                        <p className="text-muted-foreground">
-                            Created by {outfit.user.name}
-                        </p>
-                    )}
-                    <p className="text-sm text-muted-foreground">
-                        {formatDate(outfit.createdAt)}
-                    </p>
+                    <h1 className="text-[clamp(3rem,5vw,7rem)] leading-[0.9] font-['var(--font-f-lausanne-300)'] tracking-[-0.04em] mb-6">{outfit.name}</h1>
+                    <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-[var(--color-white-06)]">
+                        {outfit.user?.name && (
+                            <span>
+                                By {outfit.user.name}
+                            </span>
+                        )}
+                        {outfit.user?.name && <span className="w-1 h-1 bg-white/20 rounded-full" />}
+                        <span>
+                            {formatDate(outfit.createdAt)}
+                        </span>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
                     {/* Outfit Image */}
                     {outfit.imageUrl && (
-                        <div className="space-y-4">
-                            <h2 className="text-2xl font-semibold font-raleway">Outfit</h2>
-                            <div className="relative rounded-lg overflow-hidden">
+                        <div className="lg:col-span-5">
+                            <div className="relative rounded-none overflow-hidden aspect-[4/5] bg-white/5">
                                 <Image
                                     src={outfit.imageUrl}
                                     alt={outfit.name}
-                                    width={600}
-                                    height={600}
-                                    className="object-contain max-h-[600px] w-auto"
-                                    sizes="(max-width: 768px) 100vw, 600px"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                     priority={true}
-                                    quality={85}
+                                    quality={100}
                                     placeholder="blur"
-                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxAAPwCdABmX/9k="
                                 />
                             </div>
                         </div>
                     )}
 
                     {/* Outfit Details */}
-                    <div className="space-y-6">
+                    <div className="lg:col-span-7 flex flex-col pt-8 lg:pt-0">
                         {outfit.description && (
-                            <div>
-                                <h2 className="text-2xl font-semibold mb-3 font-raleway">Description</h2>
-                                <p className="text-muted-foreground" data-testid="outfit-description">{outfit.description}</p>
+                            <div className="mb-12">
+                                <h2 className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)] mb-6">Description</h2>
+                                <p className="text-[clamp(1.2rem,1.5vw,2rem)] leading-relaxed text-white/90 font-light" data-testid="outfit-description">{outfit.description}</p>
                             </div>
                         )}
 
                         {outfit.tags && outfit.tags.length > 0 && (
-                            <div>
-                                <h2 className="text-2xl font-semibold mb-3 font-raleway">Tags</h2>
+                            <div className="mb-16">
+                                <h2 className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)] mb-6">Tags</h2>
                                 <div className="flex flex-wrap gap-2">
                                     {outfit.tags.map((tag, index) => (
-                                        <Badge key={index} variant="secondary" data-testid={`outfit-tag-${index}`}>
+                                        <span key={index} className="px-4 py-2 border border-white/20 text-xs tracking-wider uppercase text-white hover:bg-white hover:text-black transition-colors cursor-default" data-testid={`outfit-tag-${index}`}>
                                             {tag}
-                                        </Badge>
+                                        </span>
                                     ))}
                                 </div>
                             </div>
@@ -309,55 +298,62 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
 
                         {outfit.items && outfit.items.length > 0 && (
                             <div>
-                                <h2 className="text-2xl font-semibold mb-3 font-raleway">Items</h2>
-                                <div className="space-y-4">
-                                    {sortItemsByCategory(outfit.items).map((item) => {
-                                        const categoryColors = getCategoryColors(item.category);
+                                <h2 className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)] mb-8 pb-4 border-b border-white/10 flex justify-between">
+                                    <span>Pieces</span>
+                                    <span>{outfit.items.length}</span>
+                                </h2>
+                                <div className="space-y-12">
+                                    {sortItemsByCategory(outfit.items).map((item, index) => {
                                         return (
-                                            <Card key={item.id} data-testid={`outfit-item-${item.id}`}>
-                                                <CardHeader className="pb-2">
-                                                    <CardTitle className="text-lg" data-testid={`outfit-item-name-${item.id}`}>
-                                                        {item.name}
-                                                    </CardTitle>
-                                                    <CardDescription
-                                                        className="capitalize"
-                                                        data-testid={`outfit-item-category-${item.id}`}
-                                                        style={{ color: categoryColors.primary }}
-                                                    >
-                                                        {item.category.toLowerCase().replace('_', ' ')}
-                                                    </CardDescription>
-                                                </CardHeader>
-                                                <CardContent>
+                                            <div key={item.id} className="group" data-testid={`outfit-item-${item.id}`}>
+                                                <div className="flex items-start justify-between mb-4">
+                                                    <div>
+                                                        <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1 block" data-testid={`outfit-item-category-${item.id}`}>
+                                                            {item.category.toLowerCase().replace('_', ' ')}
+                                                        </span>
+                                                        <h3 className="text-2xl font-['var(--font-f-lausanne-300)'] text-white" data-testid={`outfit-item-name-${item.id}`}>
+                                                            {item.name}
+                                                        </h3>
+                                                    </div>
+                                                    <span className="text-[10px] uppercase tracking-widest text-white/20">
+                                                        0{index + 1}
+                                                    </span>
+                                                </div>
+                                                
+                                                <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
                                                     {item.imageUrl && (
-                                                        <div className="mb-3">
-                                                            <div className="aspect-square w-full max-w-48 rounded-lg overflow-hidden bg-muted relative">
+                                                        <div className="md:col-span-4">
+                                                            <div className="aspect-[4/5] w-full bg-white/5 relative overflow-hidden group-hover:border-white/20 border border-transparent transition-colors">
                                                                 <Image
                                                                     src={item.imageUrl}
                                                                     alt={item.name}
                                                                     fill
                                                                     className="object-cover"
-                                                                    sizes="(max-width: 768px) 100vw, 192px"
+                                                                    sizes="(max-width: 768px) 100vw, 30vw"
                                                                 />
                                                             </div>
                                                         </div>
                                                     )}
-                                                    {item.description && (
-                                                        <p className="text-sm text-muted-foreground mb-2" data-testid={`outfit-item-description-${item.id}`}>
-                                                            {item.description}
-                                                        </p>
-                                                    )}
-                                                    {item.purchaseUrl && (
-                                                        <a
-                                                            href={item.purchaseUrl}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            className="text-sm text-royal hover:underline"
-                                                        >
-                                                            View Item →
-                                                        </a>
-                                                    )}
-                                                </CardContent>
-                                            </Card>
+                                                    
+                                                    <div className={`${item.imageUrl ? 'md:col-span-8' : 'md:col-span-12'} flex flex-col justify-start pt-2`}>
+                                                        {item.description && (
+                                                            <p className="text-sm text-[var(--color-white-06)] mb-6 leading-relaxed" data-testid={`outfit-item-description-${item.id}`}>
+                                                                {item.description}
+                                                            </p>
+                                                        )}
+                                                        {item.purchaseUrl && (
+                                                            <a
+                                                                href={item.purchaseUrl}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="text-[10px] uppercase tracking-widest text-white hover:text-[var(--color-white-06)] transition-colors inline-block mt-auto border-b border-white hover:border-[var(--color-white-06)] pb-1 w-fit"
+                                                            >
+                                                                View Item
+                                                            </a>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         );
                                     })}
                                 </div>

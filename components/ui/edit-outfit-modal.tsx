@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+
 import {
     Dialog,
     DialogContent,
@@ -100,18 +100,17 @@ export default function EditOutfitModal({ outfit, onOutfitUpdated }: EditOutfitM
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
-                <Button
-                    variant="outline"
-                    className="flex items-center gap-2"
+                <button
+                    className="px-6 py-2 border border-white/20 text-white hover:bg-white hover:text-black transition-colors flex items-center gap-2"
                     data-testid="edit-outfit-button"
                 >
                     <Edit className="h-4 w-4" />
                     Edit
-                </Button>
+                </button>
             </DialogTrigger>
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-                <DialogHeader>
-                    <DialogTitle>Edit Outfit</DialogTitle>
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[var(--color-dark-grey)] text-white border-white/10 rounded-none p-10 font-['var(--font-f-lausanne-400)']">
+                <DialogHeader className="mb-8">
+                    <DialogTitle className="text-[clamp(1.5rem,2vw,2rem)] leading-none font-['var(--font-f-lausanne-300)'] tracking-[-0.02em]">Edit Outfit</DialogTitle>
                 </DialogHeader>
                 <EditOutfitForm
                     outfit={outfit}

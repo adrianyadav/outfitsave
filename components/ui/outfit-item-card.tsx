@@ -1,8 +1,6 @@
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { InputField, CategorySelectField, ItemNameField } from "./form-fields";
-import { ITEM_CATEGORIES, getCategoryColors } from "@/lib/constants";
+import { ITEM_CATEGORIES } from "@/lib/constants";
 import { OutfitItem } from "@/hooks/use-outfit-items";
 import ItemImageUpload from "./item-image-upload";
 
@@ -21,35 +19,26 @@ export function OutfitItemCard({
     onRemove,
     testIdPrefix = "item"
 }: OutfitItemCardProps) {
-    const categoryColors = getCategoryColors(item.category);
-
     return (
-        <Card className="p-6 border-2 border-border/50 bg-card/50 shadow-lg">
-            <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-royal/20 rounded-full flex items-center justify-center">
-                        <span className="text-sm font-bold text-royal">{index + 1}</span>
-                    </div>
-                    <h4
-                        className="font-semibold text-lg"
-                        style={{ color: categoryColors.primary }}
-                    >
+        <div className="p-8 border border-white/10 bg-white/5 relative group transition-colors hover:border-white/20">
+            <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
+                <div className="flex items-center gap-4">
+                    <span className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)]">Item {index + 1}</span>
+                    <h4 className="font-['var(--font-f-lausanne-300)'] text-xl text-white">
                         {item.category ?
                             `${ITEM_CATEGORIES.find(cat => cat.value === item.category)?.label || 'Clothing Item'}` :
                             'Clothing Item'
                         }
                     </h4>
                 </div>
-                <Button
+                <button
                     type="button"
-                    variant="ghost"
-                    size="sm"
                     onClick={() => onRemove(index)}
-                    className="text-muted-foreground hover:text-red-500 hover:bg-red-50 transition-colors"
+                    className="text-white/40 hover:text-red-400 transition-colors p-2"
                     data-testid={`${testIdPrefix}-remove-button-${index}`}
                 >
                     <X className="h-5 w-5" />
-                </Button>
+                </button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -91,14 +80,16 @@ export function OutfitItemCard({
                 />
             </div>
 
-            <div className="mt-6">
-                <h5 className="text-sm font-medium text-foreground mb-3">Item Image</h5>
-                <ItemImageUpload
-                    onImageUpload={(imageUrl) => onUpdate(index, "imageUrl", imageUrl)}
-                    currentImageUrl={item.imageUrl}
-                    itemName={item.name}
-                />
+            <div className="mt-8 pt-6 border-t border-white/10">
+                <p className="uppercase tracking-widest text-[10px] text-[var(--color-white-06)] mb-4">Item Image</p>
+                <div className="border border-dashed border-white/20 p-6 bg-white/5 hover:border-white/40 transition-colors">
+                    <ItemImageUpload
+                        onImageUpload={(imageUrl) => onUpdate(index, "imageUrl", imageUrl)}
+                        currentImageUrl={item.imageUrl}
+                        itemName={item.name}
+                    />
+                </div>
             </div>
-        </Card>
+        </div>
     );
 }

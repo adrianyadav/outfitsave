@@ -45,7 +45,7 @@ test.describe('Outfits API', () => {
         expect(outfit.items).toEqual([]);
 
         // Store the outfit ID for later tests
-        test.info().annotations.push({ type: 'outfit-id', value: outfit.id.toString() });
+        test.info().annotations.push({ type: 'outfit-id', description: outfit.id.toString() });
     });
 
     test('should reject outfit creation without required fields when authenticated', async ({ page, request }) => {

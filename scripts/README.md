@@ -1,6 +1,6 @@
 # Scripts
 
-This directory contains utility scripts for the OutfitSave project.
+This directory contains utility scripts for the unpacked project.
 
 ## Available Scripts
 
@@ -39,4 +39,4 @@ npm run db:reset
 
 #### ⚠️ Warning
 
-This script will **permanently delete all data** in your local database. Make sure you have backed up any important data before running it. 
+This script will **permanently delete all data** in your local database. Make sure you have backed up any important data before running it.
