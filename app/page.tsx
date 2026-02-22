@@ -146,10 +146,10 @@ export default async function Home() {
                   <OutfitCard
                     outfit={{
                       id: 1,
-                      name: "Summer Casual",
-                      description: "Perfect for warm days. Light cotton dress with sandals and a wide-brim hat",
-                      imageUrl: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop",
-                      tags: ["casual", "summer", "dress"],
+                      name: "Noir Silhouette",
+                      description: "A masterclass in textural contrast. Combining structured Japanese wool with fluid silk layers.",
+                      imageUrl: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1587&auto=format&fit=crop",
+                      tags: ["avant-garde", "monochrome", "structured"],
                       isPrivate: false,
                       shareSlug: undefined,
                       createdAt: new Date().toISOString(),
@@ -162,10 +162,10 @@ export default async function Home() {
                   <OutfitCard
                     outfit={{
                       id: 2,
-                      name: "Business Professional",
-                      description: "Classic business attire for important meetings and presentations",
-                      imageUrl: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop",
-                      tags: ["formal", "business", "professional"],
+                      name: "Midnight Architecture",
+                      description: "Oversized proportions meet sharp tailoring. A statement coat anchored by heavy leather boots.",
+                      imageUrl: "https://images.unsplash.com/photo-1510520434124-5bc7e642b61d?q=80&w=1587&auto=format&fit=crop",
+                      tags: ["editorial", "outerwear", "winter"],
                       isPrivate: false,
                       shareSlug: undefined,
                       createdAt: new Date().toISOString(),
@@ -178,10 +178,42 @@ export default async function Home() {
                   <OutfitCard
                     outfit={{
                       id: 3,
-                      name: "Weekend Brunch",
-                      description: "Comfortable and stylish outfit perfect for weekend brunches",
-                      imageUrl: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop",
-                      tags: ["casual", "weekend", "brunch"],
+                      name: "Essential Gradient",
+                      description: "Muted tones blurring the line between casual and refined. Technical fabrics mixed with organic cotton.",
+                      imageUrl: "https://images.unsplash.com/photo-1511216335778-7cb8f49fa7a3?q=80&w=1587&auto=format&fit=crop",
+                      tags: ["technical", "layered", "subdued"],
+                      isPrivate: false,
+                      shareSlug: undefined,
+                      createdAt: new Date().toISOString(),
+                      items: []
+                    }}
+                    showActions={false}
+                  />
+                </div>
+                <div className="break-inside-avoid lg:mt-16">
+                  <OutfitCard
+                    outfit={{
+                      id: 4,
+                      name: "Urban Ascetic",
+                      description: "Stripped back to the absolute essentials. Drapey linen over wide-leg trousers in pitch black.",
+                      imageUrl: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1587&auto=format&fit=crop",
+                      tags: ["minimal", "linen", "summer-dark"],
+                      isPrivate: false,
+                      shareSlug: undefined,
+                      createdAt: new Date().toISOString(),
+                      items: []
+                    }}
+                    showActions={false}
+                  />
+                </div>
+                <div className="break-inside-avoid lg:mt-32">
+                  <OutfitCard
+                    outfit={{
+                      id: 5,
+                      name: "The New Standard",
+                      description: "Reinventing the everyday uniform. Deconstructed blazer paired with relaxed denim and combat boots.",
+                      imageUrl: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?q=80&w=1587&auto=format&fit=crop",
+                      tags: ["uniform", "deconstructed", "daily"],
                       isPrivate: false,
                       shareSlug: undefined,
                       createdAt: new Date().toISOString(),
