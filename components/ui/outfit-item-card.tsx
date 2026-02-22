@@ -24,7 +24,7 @@ export function OutfitItemCard({
             <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
                 <div className="flex items-center gap-4">
                     <span className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)]">Item {index + 1}</span>
-                    <h4 className="font-['var(--font-f-lausanne-300)'] text-xl text-white">
+                    <h4 className="font-[var(--font-f-lausanne-300)] text-xl text-white">
                         {item.category ?
                             `${ITEM_CATEGORIES.find(cat => cat.value === item.category)?.label || 'Clothing Item'}` :
                             'Clothing Item'

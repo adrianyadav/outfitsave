@@ -64,10 +64,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[var(--color-dark-grey)] text-white py-12 px-4 sm:px-6 lg:px-8 font-['var(--font-f-lausanne-400)']">
+    <div className="min-h-screen flex items-center justify-center bg-[var(--color-dark-grey)] text-white py-12 px-4 sm:px-6 lg:px-8 font-[var(--font-f-lausanne-400)]">
       <div className="max-w-md w-full p-8 border border-white/10 bg-white/5 relative overflow-hidden group">
         <div className="space-y-4 mb-8 text-center relative z-10">
-          <h1 className="text-3xl font-['var(--font-f-lausanne-300)']">Sign in</h1>
+          <h1 className="text-3xl font-[var(--font-f-lausanne-300)]">Sign in</h1>
           <p className="text-sm text-[var(--color-white-06)]">
             Enter your email and password to access your account
           </p>

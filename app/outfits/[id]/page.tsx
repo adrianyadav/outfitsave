@@ -178,13 +178,13 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
     if (!outfit) {
         return (
             <div className="min-h-screen bg-[var(--color-dark-grey)] flex items-center justify-center">
-                <p className="text-[var(--color-white-06)] font-['var(--font-f-lausanne-400)']">Outfit not found.</p>
+                <p className="text-[var(--color-white-06)] font-[var(--font-f-lausanne-400)]">Outfit not found.</p>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-[var(--color-dark-grey)] text-white pt-32 pb-24 font-['var(--font-f-lausanne-400)']">
+        <div className="min-h-screen bg-[var(--color-dark-grey)] text-white pt-32 pb-24 font-[var(--font-f-lausanne-400)]">
             <div className="max-w-[2000px] mx-auto px-6 md:px-12 max-w-6xl">
                 {/* Header with actions */}
                 <div className="mb-16">
@@ -240,7 +240,7 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
                         </div>
                     </div>
 
-                    <h1 className="text-[clamp(3rem,5vw,7rem)] leading-[0.9] font-['var(--font-f-lausanne-300)'] tracking-[-0.04em] mb-6">{outfit.name}</h1>
+                    <h1 className="text-[clamp(3rem,5vw,7rem)] leading-[0.9] font-[var(--font-f-lausanne-300)] tracking-[-0.04em] mb-6">{outfit.name}</h1>
                     <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-[var(--color-white-06)]">
                         {outfit.user?.name && (
                             <span>
@@ -311,7 +311,7 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
                                                         <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1 block" data-testid={`outfit-item-category-${item.id}`}>
                                                             {item.category.toLowerCase().replace('_', ' ')}
                                                         </span>
-                                                        <h3 className="text-2xl font-['var(--font-f-lausanne-300)'] text-white" data-testid={`outfit-item-name-${item.id}`}>
+                                                        <h3 className="text-2xl font-[var(--font-f-lausanne-300)] text-white" data-testid={`outfit-item-name-${item.id}`}>
                                                             {item.name}
                                                         </h3>
                                                     </div>

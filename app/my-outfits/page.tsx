@@ -150,13 +150,13 @@ function MyOutfitsList() {
                 <>
                     {outfits.length === 0 ? (
                         <div className="text-center space-y-8 py-32 border-t border-white/10 mt-12" data-testid="no-outfits-message">
-                            <h3 className="text-[clamp(2rem,4vw,4rem)] leading-none font-['var(--font-f-lausanne-300)'] tracking-[-0.02em] text-white">No outfits yet</h3>
-                            <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-[var(--color-white-06)] font-['var(--font-f-lausanne-400)'] max-w-2xl mx-auto">
+                            <h3 className="text-[clamp(2rem,4vw,4rem)] leading-none font-[var(--font-f-lausanne-300)] tracking-[-0.02em] text-white">No outfits yet</h3>
+                            <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-[var(--color-white-06)] font-[var(--font-f-lausanne-400)] max-w-2xl mx-auto">
                                 You haven&apos;t created any outfits yet. Start building your fashion collection!
                             </p>
                             <Link 
                                 href="/outfits/new" 
-                                className="inline-flex items-center justify-center px-8 py-4 bg-white text-black rounded-full font-['var(--font-f-lausanne-400)'] hover:bg-[var(--color-white-08)] transition-colors hover:scale-[1.02] active:scale-[0.98]" 
+                                className="inline-flex items-center justify-center px-8 py-4 bg-white text-black rounded-full font-[var(--font-f-lausanne-400)] hover:bg-[var(--color-white-08)] transition-colors hover:scale-[1.02] active:scale-[0.98]" 
                                 data-testid="create-first-outfit-button"
                             >
                                 Create Your First Outfit
@@ -182,7 +182,7 @@ function MyOutfitsList() {
 
                     {/* Pagination Controls */}
                     {totalPages > 1 ? (
-                        <div className="flex justify-center items-center space-x-6 mt-20 pt-10 border-t border-white/10 font-['var(--font-f-lausanne-400)']">
+                        <div className="flex justify-center items-center space-x-6 mt-20 pt-10 border-t border-white/10 font-[var(--font-f-lausanne-400)]">
                             {page > 1 && (
                                 <Link 
                                     href={`/my-outfits?page=${page - 1}`} 
@@ -218,16 +218,16 @@ export default function MyOutfitsPage() {
                 <div className="mb-20">
                     <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
                         <div className="flex-1">
-                            <h1 className="text-[clamp(4rem,10vw,12rem)] leading-[0.85] font-['var(--font-f-lausanne-300)'] tracking-[-0.04em] whitespace-nowrap -ml-[0.05em] mb-8">
+                            <h1 className="text-[clamp(4rem,10vw,12rem)] leading-[0.85] font-[var(--font-f-lausanne-300)] tracking-[-0.04em] whitespace-nowrap -ml-[0.05em] mb-8">
                                 Outfits
                             </h1>
-                            <p className="text-[clamp(1.2rem,2vw,2.5rem)] leading-[1.3] font-['var(--font-f-lausanne-400)'] font-light max-w-2xl lg:max-w-4xl text-[var(--color-white-06)]">
+                            <p className="text-[clamp(1.2rem,2vw,2.5rem)] leading-[1.3] font-[var(--font-f-lausanne-400)] font-light max-w-2xl lg:max-w-4xl text-[var(--color-white-06)]">
                                 Manage and organize your personal collection.<br className="hidden md:block" /> Create, edit, and share your favorite styles.
                             </p>
                         </div>
                         <Link 
                             href="/outfits/new" 
-                            className="mt-8 lg:mt-0 self-start lg:self-end flex items-center justify-center px-8 py-4 bg-white text-black rounded-full font-['var(--font-f-lausanne-400)'] hover:bg-[var(--color-white-08)] transition-colors hover:scale-[1.02] active:scale-[0.98]"
+                            className="mt-8 lg:mt-0 self-start lg:self-end flex items-center justify-center px-8 py-4 bg-white text-black rounded-full font-[var(--font-f-lausanne-400)] hover:bg-[var(--color-white-08)] transition-colors hover:scale-[1.02] active:scale-[0.98]"
                             data-testid="create-new-outfit-button"
                         >
                             Create New Outfit

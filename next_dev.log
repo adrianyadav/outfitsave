@@ -1710,3 +1710,304 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
  GET /api/auth/session 200 in 393ms
  GET /api/auth/session 200 in 376ms
  GET /api/my-outfits?page=1 401 in 394ms
+ GET / 200 in 528ms
+ GET / 200 in 509ms
+ GET /login 200 in 490ms
+ GET /login 200 in 507ms
+ GET /login 200 in 516ms
+ GET /api/auth/session 200 in 413ms
+ GET /api/auth/session 200 in 415ms
+ GET /api/auth/session 200 in 407ms
+ GET /api/auth/providers 200 in 337ms
+ GET /api/auth/providers 200 in 337ms
+ GET /api/auth/providers 200 in 340ms
+ GET /api/auth/csrf 200 in 360ms
+ GET /api/auth/csrf 200 in 359ms
+ GET /api/auth/csrf 200 in 360ms
+ POST /api/auth/callback/credentials 200 in 1084ms
+ POST /api/auth/callback/credentials 200 in 1085ms
+ POST /api/auth/callback/credentials 200 in 1225ms
+ GET /api/auth/session 200 in 362ms
+ GET /api/auth/session 200 in 361ms
+ GET /api/auth/session 200 in 269ms
+ GET / 200 in 502ms
+ GET / 200 in 500ms
+ GET / 200 in 397ms
+ GET / 200 in 398ms
+ GET /api/admin/check 200 in 545ms
+ GET /api/admin/check 200 in 751ms
+ GET /outfits/new 200 in 223ms
+ GET / 200 in 2099ms
+ GET / 200 in 1979ms
+ GET /api/auth/session 200 in 952ms
+ GET /api/admin/check 200 in 1192ms
+ GET /outfits/new 200 in 855ms
+ GET /api/my-items 200 in 1613ms
+ GET /api/my-items 200 in 1402ms
+ GET /api/auth/session 200 in 1263ms
+ GET /outfits/new 200 in 1461ms
+ GET /api/auth/session 200 in 474ms
+ GET /api/my-items 200 in 893ms
+ POST /api/outfits 200 in 3213ms
+ GET /my-outfits 200 in 155ms
+ GET /api/my-outfits?page=1 200 in 1155ms
+ POST /api/outfits 200 in 2041ms
+ GET /my-outfits 200 in 382ms
+ GET /api/admin/check 200 in 803ms
+ GET /api/my-outfits?page=1 200 in 1437ms
+ GET /api/my-outfits?page=1 200 in 1207ms
+ GET /api/admin/check 200 in 646ms
+ GET /api/my-outfits?page=1 200 in 1053ms
+ DELETE /api/outfits/59 200 in 905ms
+ GET /my-outfits 200 in 338ms
+ GET /api/auth/session 200 in 387ms
+ GET /api/my-outfits?page=1 200 in 1193ms
+ GET /api/admin/check 200 in 633ms
+ GET / 200 in 526ms
+ GET / 200 in 504ms
+ GET /login 200 in 730ms
+ GET /login 200 in 741ms
+ GET /login 200 in 742ms
+ GET /api/auth/session 200 in 552ms
+ GET /api/auth/session 200 in 559ms
+ GET /api/auth/session 200 in 561ms
+ GET /api/auth/providers 200 in 522ms
+ GET /api/auth/providers 200 in 522ms
+ GET /api/auth/providers 200 in 519ms
+ GET /api/auth/csrf 200 in 335ms
+ GET /api/auth/csrf 200 in 333ms
+ GET /api/auth/csrf 200 in 335ms
+ POST /api/auth/callback/credentials 200 in 1099ms
+ POST /api/auth/callback/credentials 200 in 1170ms
+ POST /api/auth/callback/credentials 200 in 1176ms
+ GET /api/auth/session 200 in 311ms
+ GET /api/auth/session 200 in 312ms
+ GET /api/auth/session 200 in 311ms
+ GET / 200 in 394ms
+ GET / 200 in 463ms
+ GET / 200 in 439ms
+ GET / 200 in 464ms
+ GET /api/admin/check 200 in 574ms
+ GET / 200 in 2160ms
+ GET /outfits/new 200 in 258ms
+ GET / 200 in 2159ms
+ GET /api/auth/session 200 in 354ms
+ GET /api/admin/check 200 in 2207ms
+ GET /api/my-items 200 in 760ms
+ GET /outfits/new 200 in 207ms
+ GET /api/auth/session 200 in 316ms
+ GET /api/admin/check 200 in 2319ms
+ GET /api/my-items 200 in 824ms
+ GET /outfits/new 200 in 188ms
+ GET /api/auth/session 200 in 704ms
+ POST /api/outfits 200 in 2715ms
+ GET /my-outfits 200 in 107ms
+ GET /api/my-items 200 in 1589ms
+ GET /api/my-outfits?page=1 200 in 1308ms
+ GET /api/admin/check 200 in 487ms
+ POST /api/outfits 200 in 3167ms
+ GET /my-outfits 200 in 105ms
+ GET /api/my-outfits?page=1 200 in 1090ms
+ GET /api/my-outfits?page=1 200 in 2357ms
+ GET /api/admin/check 200 in 626ms
+ GET /api/my-outfits?page=1 200 in 1657ms
+ DELETE /api/outfits/61 200 in 881ms
+ GET /my-outfits 200 in 222ms
+ GET /api/auth/session 200 in 303ms
+ GET /api/my-outfits?page=1 200 in 1118ms
+ GET /api/admin/check 200 in 665ms
+ GET / 200 in 517ms
+ GET / 200 in 502ms
+ GET /login 200 in 509ms
+ GET /login 200 in 536ms
+ GET /login 200 in 561ms
+ GET /api/auth/session 200 in 400ms
+ GET /api/auth/session 200 in 405ms
+ GET /api/auth/session 200 in 401ms
+ GET /api/auth/providers 200 in 356ms
+ GET /api/auth/providers 200 in 368ms
+ GET /api/auth/providers 200 in 371ms
+ GET /api/auth/csrf 200 in 363ms
+ GET /api/auth/csrf 200 in 354ms
+ GET /api/auth/csrf 200 in 353ms
+ POST /api/auth/callback/credentials 200 in 1336ms
+ POST /api/auth/callback/credentials 200 in 1338ms
+ POST /api/auth/callback/credentials 200 in 1420ms
+ GET /api/auth/session 200 in 311ms
+ GET /api/auth/session 200 in 315ms
+ GET /api/auth/session 200 in 315ms
+ GET / 200 in 371ms
+ GET / 200 in 371ms
+ GET / 200 in 373ms
+ GET / 200 in 579ms
+ GET / 200 in 562ms
+ GET /api/admin/check 200 in 481ms
+ GET /api/admin/check 200 in 487ms
+ GET /outfits/new 200 in 171ms
+ GET / 200 in 2045ms
+ GET /outfits/new 200 in 249ms
+ GET /api/auth/session 200 in 363ms
+ GET /api/my-items 200 in 1138ms
+ GET /api/auth/session 200 in 774ms
+ GET /api/admin/check 200 in 1291ms
+ GET /api/my-items 200 in 1503ms
+ GET /outfits/new 200 in 180ms
+ GET /api/auth/session 200 in 302ms
+ GET /api/my-items 200 in 716ms
+ POST /api/outfits 200 in 1897ms
+ GET /my-outfits 200 in 80ms
+ GET /api/my-outfits?page=1 200 in 1067ms
+ POST /api/outfits 200 in 2724ms
+ GET /my-outfits 200 in 67ms
+ GET /api/admin/check 200 in 499ms
+ GET /api/my-outfits?page=1 200 in 910ms
+ POST /api/outfits 200 in 2087ms
+ GET /api/my-outfits?page=1 200 in 1099ms
+ GET /my-outfits 200 in 92ms
+ GET /api/admin/check 200 in 538ms
+ GET /api/my-outfits?page=1 200 in 1166ms
+ GET /api/my-outfits?page=1 200 in 1123ms
+ GET /api/admin/check 200 in 508ms
+ GET /api/my-outfits?page=1 200 in 926ms
+ DELETE /api/outfits/63 200 in 888ms
+ GET /my-outfits 200 in 162ms
+ GET /api/auth/session 200 in 287ms
+ GET /api/my-outfits?page=1 200 in 1029ms
+ GET /api/admin/check 200 in 666ms
+ DELETE /api/outfits/64 200 in 662ms
+ GET /my-outfits 200 in 169ms
+ GET /api/auth/session 200 in 294ms
+ GET /api/my-outfits?page=1 200 in 906ms
+ GET /api/admin/check 200 in 488ms
+ GET / 200 in 518ms
+ GET /api/auth/session 200 in 342ms
+ GET /login 200 in 87ms
+ ○ Compiling /icon ...
+ ✓ Compiled /icon in 1292ms
+ GET /icon?fd97e36358453219 200 in 1559ms
+ GET /api/auth/providers 200 in 268ms
+ GET /api/auth/csrf 200 in 281ms
+ POST /api/auth/callback/credentials 401 in 2110ms
+ GET /api/auth/providers 200 in 278ms
+ GET /api/auth/csrf 200 in 277ms
+ POST /api/auth/signin/google 200 in 614ms
+New user registered via Google: adrianyadav@gmail.com
+ GET /api/auth/callback/google?state=bcWkicgACWffUf1RM5DvN3WqENzRE3xh2RofM6gn-Is&iss=https%3A%2F%2Faccounts.google.com&code=4%2F0AfrIepCsdAfgTfHRcvYTs132kuH3tXc66hgOJhoJvViIM6vduzhZ0YmghEc4kWA80XfUDw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=none 302 in 2697ms
+ GET / 200 in 538ms
+ GET /api/auth/session 200 in 405ms
+ GET /api/admin/check 200 in 722ms
+ ○ Compiling /settings ...
+ ✓ Compiled /settings in 503ms
+ GET /settings 200 in 599ms
+ GET /icon?fd97e36358453219 200 in 69ms
+ ✓ Compiled /api/auth/check-password in 243ms
+ GET /api/auth/check-password 200 in 1978ms
+ GET /settings 200 in 248ms
+ GET /icon?fd97e36358453219 200 in 138ms
+ GET /api/auth/session 200 in 391ms
+ GET /api/auth/check-password 200 in 615ms
+ ✓ Compiled in 205ms
+ GET /settings 200 in 149ms
+ GET /icon?fd97e36358453219 200 in 846ms
+ GET /api/auth/session 200 in 1032ms
+ GET /api/auth/check-password 200 in 703ms
+ GET /my-outfits 200 in 270ms
+ GET /api/my-outfits?page=1 200 in 2597ms
+ GET /api/my-outfits?page=1 200 in 1113ms
+ GET / 200 in 2100ms
+ GET /api/admin/check 200 in 737ms
+ ✓ Compiled in 85ms
+ ✓ Compiled / in 41ms
+ GET / 200 in 2079ms
+ GET /my-outfits 200 in 119ms
+ GET /settings 200 in 135ms
+ GET /api/my-outfits?page=1 200 in 1124ms
+ GET /api/auth/check-password 200 in 710ms
+ GET /api/my-outfits?page=1 200 in 668ms
+ GET /api/auth/check-password 200 in 507ms
+ GET /outfits 200 in 173ms
+ GET /api/outfits?page=1 200 in 696ms
+ GET /api/outfits?page=1 200 in 487ms
+ GET / 200 in 292ms
+ GET /outfits/3 200 in 220ms
+ GET /icon?fd97e36358453219 200 in 90ms
+ GET /api/outfits/3 404 in 740ms
+ GET /outfits 200 in 164ms
+ GET /api/outfits/3 404 in 542ms
+ GET /api/outfits?page=1 200 in 518ms
+ GET /outfits 200 in 231ms
+ GET /api/outfits?page=1 200 in 539ms
+ ⚠ Fast Refresh had to perform a full reload when ./app/my-outfits/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 125ms
+ GET /outfits 200 in 1502ms
+ GET /icon?fd97e36358453219 200 in 189ms
+ GET /api/auth/session 200 in 449ms
+ GET /api/outfits?page=1 200 in 649ms
+ GET /api/admin/check 200 in 498ms
+ GET / 200 in 285ms
+ GET /outfits/1 200 in 136ms
+ GET /api/outfits/1 404 in 732ms
+ GET /outfits 200 in 181ms
+ GET /api/outfits/1 404 in 555ms
+ GET /outfits 200 in 216ms
+ GET /api/outfits?page=1 200 in 711ms
+ GET /api/outfits?page=1 200 in 513ms
+ GET /api/auth/session 200 in 289ms
+ GET /outfits 200 in 123ms
+ GET / 200 in 498ms
+ GET /outfits/1 200 in 171ms
+ GET /api/outfits/1 404 in 832ms
+ GET /outfits 200 in 182ms
+ GET /api/outfits/1 404 in 555ms
+ GET /outfits 200 in 85ms
+ GET /api/outfits?page=1 200 in 706ms
+ GET /api/outfits?page=1 200 in 480ms
+ GET /api/auth/csrf 200 in 349ms
+ POST /api/auth/signout 200 in 462ms
+ GET /outfits 200 in 343ms
+ ⨯ Failed to generate static paths for /api/auth/[...nextauth]:
+[Error [PageNotFoundError]: Cannot find module for page: /api/auth/[...nextauth]/route] {
+  type: 'PageNotFoundError',
+  code: 'ENOENT'
+}
+ ⨯ Failed to generate static paths for /api/auth/[...nextauth]:
+[Error [PageNotFoundError]: Cannot find module for page: /api/auth/[...nextauth]/route] {
+  type: 'PageNotFoundError',
+  code: 'ENOENT'
+}
+ GET /api/outfits?page=1 200 in 877ms
+ GET /api/auth/session 200 in 1300ms
+ GET / 200 in 538ms
+ GET /login 200 in 183ms
+ GET /api/auth/providers 200 in 277ms
+ GET /api/auth/csrf 200 in 287ms
+ POST /api/auth/signin/google 200 in 609ms
+ GET /api/auth/callback/google?state=alT6lXfu0vhSyEnaVnin0usBBMY0bGIoOwHJjEA5KZA&iss=https%3A%2F%2Faccounts.google.com&code=4%2F0AfrIepCly4tzg4916u992hLyaaC0O-KGTCCSW52Z7fd7e2NglgeGjf3JvU3ww_ooYTMRpg&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=1&prompt=none 302 in 2658ms
+Image with src "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1587&auto=format&fit=crop" is using quality "85" which is not configured in images.qualities. This config will be required starting in Next.js 16.
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+Image with src "https://images.unsplash.com/photo-1510520434124-5bc7e642b61d?q=80&w=1587&auto=format&fit=crop" is using quality "85" which is not configured in images.qualities. This config will be required starting in Next.js 16.
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+Image with src "https://images.unsplash.com/photo-1613733539611-ca96d94b46ba?q=80&w=1587&auto=format&fit=crop" is using quality "85" which is not configured in images.qualities. This config will be required starting in Next.js 16.
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+Image with src "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1587&auto=format&fit=crop" is using quality "85" which is not configured in images.qualities. This config will be required starting in Next.js 16.
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+Image with src "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?q=80&w=1587&auto=format&fit=crop" is using quality "85" which is not configured in images.qualities. This config will be required starting in Next.js 16.
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+ GET / 200 in 330ms
+ GET /api/auth/session 200 in 301ms
+ GET /api/admin/check 200 in 527ms
+ GET /outfits/3 200 in 182ms
+ GET /api/outfits/3 404 in 718ms
+ GET /outfits 200 in 164ms
+ GET /api/outfits/3 404 in 538ms
+ GET /outfits 200 in 349ms
+ GET /api/outfits?page=1 200 in 741ms
+ GET /api/outfits?page=1 200 in 998ms
+ GET /outfits 200 in 147ms
+ GET /icon?fd97e36358453219 200 in 156ms
+ GET /api/auth/session 200 in 557ms
+ GET /api/outfits?page=1 200 in 751ms
+ GET /api/admin/check 200 in 498ms
+ GET /my-outfits 200 in 174ms
+ GET /api/my-outfits?page=1 200 in 689ms
+ GET /api/my-outfits?page=1 200 in 723ms

@@ -78,13 +78,13 @@ function OutfitsList() {
                 <>
                     {outfits.length === 0 ? (
                         <div className="text-center space-y-8 py-32 border-t border-white/10 mt-12">
-                            <h3 className="text-[clamp(2rem,4vw,4rem)] leading-none font-['var(--font-f-lausanne-300)'] tracking-[-0.02em] text-white">No outfits available</h3>
-                            <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-[var(--color-white-06)] font-['var(--font-f-lausanne-400)'] max-w-2xl mx-auto">
+                            <h3 className="text-[clamp(2rem,4vw,4rem)] leading-none font-[var(--font-f-lausanne-300)] tracking-[-0.02em] text-white">No outfits available</h3>
+                            <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-[var(--color-white-06)] font-[var(--font-f-lausanne-400)] max-w-2xl mx-auto">
                                 Be the first to share your style! Create and share your outfits with the community.
                             </p>
                             <Link 
                                 href="/outfits/new" 
-                                className="inline-flex items-center justify-center px-8 py-4 bg-white text-black rounded-full font-['var(--font-f-lausanne-400)'] hover:bg-[var(--color-white-08)] transition-colors hover:scale-[1.02] active:scale-[0.98]"
+                                className="inline-flex items-center justify-center px-8 py-4 bg-white text-black rounded-full font-[var(--font-f-lausanne-400)] hover:bg-[var(--color-white-08)] transition-colors hover:scale-[1.02] active:scale-[0.98]"
                             >
                                 Create Your First Outfit
                             </Link>
@@ -110,7 +110,7 @@ function OutfitsList() {
 
                     {/* Pagination Controls */}
                     {totalPages > 1 ? (
-                        <div className="flex justify-center items-center space-x-6 mt-20 pt-10 border-t border-white/10 font-['var(--font-f-lausanne-400)']">
+                        <div className="flex justify-center items-center space-x-6 mt-20 pt-10 border-t border-white/10 font-[var(--font-f-lausanne-400)]">
                             {page > 1 && (
                                 <Link 
                                     href={`/outfits?page=${page - 1}`} 
@@ -144,10 +144,10 @@ export default function OutfitsPage() {
             <div className="max-w-[2000px] mx-auto px-6 md:px-12">
                 {/* Header Section */}
                 <div className="mb-20">
-                    <h1 className="text-[clamp(4rem,10vw,12rem)] leading-[0.85] font-['var(--font-f-lausanne-300)'] tracking-[-0.04em] whitespace-nowrap -ml-[0.05em] mb-8">
+                    <h1 className="text-[clamp(4rem,10vw,12rem)] leading-[0.85] font-[var(--font-f-lausanne-300)] tracking-[-0.04em] whitespace-nowrap -ml-[0.05em] mb-8">
                         Browse
                     </h1>
-                    <p className="text-[clamp(1.2rem,2vw,2.5rem)] leading-[1.3] font-['var(--font-f-lausanne-400)'] font-light max-w-2xl lg:max-w-4xl text-[var(--color-white-06)]">
+                    <p className="text-[clamp(1.2rem,2vw,2.5rem)] leading-[1.3] font-[var(--font-f-lausanne-400)] font-light max-w-2xl lg:max-w-4xl text-[var(--color-white-06)]">
                         Discover curated styles from our community.<br className="hidden md:block"/> Get inspired and find your next favorite look.
                     </p>
                 </div>

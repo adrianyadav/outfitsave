@@ -113,11 +113,11 @@ export default function SettingsPage() {
     }
 
     return (
-        <div className="min-h-screen bg-[var(--color-dark-grey)] text-white pt-32 pb-24 px-4 sm:px-6 lg:px-8 font-['var(--font-f-lausanne-400)']">
+        <div className="min-h-screen bg-[var(--color-dark-grey)] text-white pt-32 pb-24 px-4 sm:px-6 lg:px-8 font-[var(--font-f-lausanne-400)]">
             <div className="max-w-2xl mx-auto">
                 {/* Header Section */}
                 <div className="mb-16">
-                    <h1 className="text-[clamp(3rem,6vw,8rem)] leading-[0.85] font-['var(--font-f-lausanne-300)'] tracking-[-0.04em] whitespace-nowrap -ml-[0.05em] mb-4">
+                    <h1 className="text-[clamp(3rem,6vw,8rem)] leading-[0.85] font-[var(--font-f-lausanne-300)] tracking-[-0.04em] whitespace-nowrap -ml-[0.05em] mb-4">
                         Settings
                     </h1>
                     <p className="text-[clamp(1rem,1.2vw,1.5rem)] text-[var(--color-white-06)]">
@@ -157,7 +157,7 @@ export default function SettingsPage() {
 
                     {hasPassword === false ? (
                         <div className="mt-16 p-8 border border-white/10 bg-white/5 relative overflow-hidden group">
-                            <h2 className="text-2xl font-['var(--font-f-lausanne-300)'] mb-2">Set a Password</h2>
+                            <h2 className="text-2xl font-[var(--font-f-lausanne-300)] mb-2">Set a Password</h2>
                             <p className="text-sm text-[var(--color-white-06)] mb-8 max-w-sm">
                                 Add a password to your account so you can sign in with email and password in addition to Google.
                             </p>

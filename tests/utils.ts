@@ -109,10 +109,19 @@ class OutfitFormPage {
         const itemNameInput = this.page.locator(`[data-testid="item-name-input-${itemIndex}"]`);
         await itemNameInput.fill(item.name);
 
-        // Select category using data-testid
+        // Select category using Radix UI Select approach
         const categorySelect = this.page.locator(`[data-testid="item-category-select-${itemIndex}"]`);
         await categorySelect.click();
-        await this.page.locator(`[data-testid="item-category-option-${itemIndex}-${item.category}"]`).click({ force: true });
+
+        const categoryLabels: { [key: string]: string } = Object.fromEntries(
+            ITEM_CATEGORIES.map(cat => [cat.value, cat.label])
+        );
+        const categoryLabel = categoryLabels[item.category] || item.category;
+
+        await this.page.waitForTimeout(500);
+        const option = this.page.locator(`[role="option"]:has-text("${categoryLabel}")`);
+        await option.waitFor({ timeout: 5000 });
+        await option.click({ force: true });
 
         // Fill optional description
         if (item.description) {
@@ -135,7 +144,7 @@ class OutfitFormPage {
         try {
             // First try to wait for navigation to /my-outfits
             await this.page.waitForURL('/my-outfits', { timeout: 10000 });
-        } catch (error) {
+        } catch {
             // If that fails, wait for any navigation to complete
             await this.page.waitForLoadState('networkidle', { timeout: 10000 });
 
@@ -402,16 +411,18 @@ export async function createOutfit(page: Page, options: CreateOutfitOptions = {}
     // More robust navigation handling
     try {
         // First try to wait for the redirect
-        await page.waitForURL('/my-outfits', { timeout: 15000 });
-    } catch (error) {
+        await page.waitForURL('**/my-outfits*', { timeout: 15000 });
+    } catch {
         // If redirect fails, check if we're still on the form page
         const currentUrl = page.url();
         if (currentUrl.includes('/add-outfit') || currentUrl.includes('/outfits/new')) {
             // Form submission might have failed, check for errors
-            const errorElement = page.locator('[data-testid="error-message"], .text-destructive');
+            const errorElement = page.locator('[data-testid="error-message"], .text-destructive').first();
             if (await errorElement.isVisible()) {
                 const errorText = await errorElement.textContent();
-                throw new Error(`Form submission failed: ${errorText}`);
+                if (errorText && errorText.trim().length > 0) {
+                    throw new Error(`Form submission failed: ${errorText}`);
+                }
             }
 
             // Try to navigate manually

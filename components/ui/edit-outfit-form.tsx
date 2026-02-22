@@ -167,11 +167,11 @@ export default function EditOutfitForm({ outfit, onSave, onCancel, isLoading = f
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-12 font-['var(--font-f-lausanne-400)']" data-testid="edit-outfit-form">
+        <form onSubmit={handleSubmit} className="space-y-12 font-[var(--font-f-lausanne-400)]" data-testid="edit-outfit-form">
             <div className="space-y-8">
                 <div className="flex items-center gap-4 border-b border-white/10 pb-4">
                     <PersonStanding className="w-5 h-5 text-white/50" />
-                    <h3 className="text-xl font-['var(--font-f-lausanne-300)'] uppercase tracking-widest text-white/50">Basic Information</h3>
+                    <h3 className="text-xl font-[var(--font-f-lausanne-300)] uppercase tracking-widest text-white/50">Basic Information</h3>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -226,7 +226,7 @@ export default function EditOutfitForm({ outfit, onSave, onCancel, isLoading = f
                         data-testid="edit-outfit-private-checkbox"
                     />
                     <div>
-                        <label htmlFor="isPrivate" className="font-['var(--font-f-lausanne-400)'] text-white cursor-pointer">
+                        <label htmlFor="isPrivate" className="font-[var(--font-f-lausanne-400)] text-white cursor-pointer">
                             Make this outfit private
                         </label>
                         <p className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)] mt-1">
@@ -241,7 +241,7 @@ export default function EditOutfitForm({ outfit, onSave, onCancel, isLoading = f
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-white/10 pb-4">
                     <div className="flex items-center gap-4">
                         <Plus className="w-5 h-5 text-white/50" />
-                        <h3 className="text-xl font-['var(--font-f-lausanne-300)'] uppercase tracking-widest text-white/50">Outfit Items</h3>
+                        <h3 className="text-xl font-[var(--font-f-lausanne-300)] uppercase tracking-widest text-white/50">Outfit Items</h3>
                     </div>
                     <div className="flex gap-4">
                         {previousItems.length > 0 ? (
@@ -316,7 +316,7 @@ export default function EditOutfitForm({ outfit, onSave, onCancel, isLoading = f
                                                 <span>Item {index + 1}</span>
                                             </div>
                                             <div className="text-left min-w-0 flex-1 flex flex-col items-start">
-                                                <h4 className="font-['var(--font-f-lausanne-300)'] text-lg text-white truncate">
+                                                <h4 className="font-[var(--font-f-lausanne-300)] text-lg text-white truncate">
                                                     {item.name || "Untitled Item"}
                                                 </h4>
                                                 <p className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)] truncate">

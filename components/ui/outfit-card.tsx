@@ -160,8 +160,8 @@ export default function OutfitCard({
                 </div>
 
                 {/* Content Section - Minimal text below image */}
-                <div className="py-5 flex flex-col items-start font-['var(--font-f-lausanne-400)']">
-                    <h3 className="text-[clamp(1.5rem,2vw,2rem)] leading-none font-['var(--font-f-lausanne-300)'] tracking-[-0.02em] overflow-hidden text-ellipsis whitespace-nowrap w-full">
+                <div className="py-5 flex flex-col items-start font-[var(--font-f-lausanne-400)]">
+                    <h3 className="text-[clamp(1.5rem,2vw,2rem)] leading-none font-[var(--font-f-lausanne-300)] tracking-[-0.02em] overflow-hidden text-ellipsis whitespace-nowrap w-full">
                         {outfit.name}
                     </h3>
                     

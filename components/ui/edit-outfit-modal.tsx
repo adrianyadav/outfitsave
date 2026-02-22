@@ -108,9 +108,9 @@ export default function EditOutfitModal({ outfit, onOutfitUpdated }: EditOutfitM
                     Edit
                 </button>
             </DialogTrigger>
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[var(--color-dark-grey)] text-white border-white/10 rounded-none p-10 font-['var(--font-f-lausanne-400)']">
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[var(--color-dark-grey)] text-white border-white/10 rounded-none p-10 font-[var(--font-f-lausanne-400)]">
                 <DialogHeader className="mb-8">
-                    <DialogTitle className="text-[clamp(1.5rem,2vw,2rem)] leading-none font-['var(--font-f-lausanne-300)'] tracking-[-0.02em]">Edit Outfit</DialogTitle>
+                    <DialogTitle className="text-[clamp(1.5rem,2vw,2rem)] leading-none font-[var(--font-f-lausanne-300)] tracking-[-0.02em]">Edit Outfit</DialogTitle>
                 </DialogHeader>
                 <EditOutfitForm
                     outfit={outfit}

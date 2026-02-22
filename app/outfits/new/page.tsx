@@ -144,11 +144,11 @@ export default function NewOutfitPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[var(--color-dark-grey)] text-white pt-32 pb-24 font-['var(--font-f-lausanne-400)']">
+        <div className="min-h-screen bg-[var(--color-dark-grey)] text-white pt-32 pb-24 font-[var(--font-f-lausanne-400)]">
             <div className="max-w-[2000px] mx-auto px-6 md:px-12 max-w-4xl lg:max-w-5xl">
                 {/* Header Section */}
                 <div className="mb-16">
-                    <h1 className="text-[clamp(3rem,6vw,8rem)] leading-[0.85] font-['var(--font-f-lausanne-300)'] tracking-[-0.04em] whitespace-nowrap -ml-[0.05em] mb-4">
+                    <h1 className="text-[clamp(3rem,6vw,8rem)] leading-[0.85] font-[var(--font-f-lausanne-300)] tracking-[-0.04em] whitespace-nowrap -ml-[0.05em] mb-4">
                         Save Outfit
                     </h1>
                     <p className="text-[clamp(1rem,1.2vw,1.5rem)] text-[var(--color-white-06)]">
@@ -162,7 +162,7 @@ export default function NewOutfitPage() {
                             <div className="space-y-10">
                                 <div className="flex items-center gap-4 border-b border-white/10 pb-4">
                                     <PersonStanding className="w-5 h-5 text-white/50" />
-                                    <h3 className="text-xl font-['var(--font-f-lausanne-300)'] uppercase tracking-widest text-white/50">Basic Information</h3>
+                                    <h3 className="text-xl font-[var(--font-f-lausanne-300)] uppercase tracking-widest text-white/50">Basic Information</h3>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -225,7 +225,7 @@ export default function NewOutfitPage() {
                                         data-testid="outfit-private-checkbox"
                                     />
                                     <div>
-                                        <label htmlFor="isPrivate" className="font-['var(--font-f-lausanne-400)'] cursor-pointer">Make this outfit private</label>
+                                        <label htmlFor="isPrivate" className="font-[var(--font-f-lausanne-400)] cursor-pointer">Make this outfit private</label>
                                         <p className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)] mt-1">
                                             Private outfits are only visible to you
                                         </p>
@@ -238,7 +238,7 @@ export default function NewOutfitPage() {
                                 <div className="flex items-center justify-between border-b border-white/10 pb-4">
                                     <div className="flex items-center gap-4">
                                         <Shirt className="w-5 h-5 text-white/50" />
-                                        <h3 className="text-xl font-['var(--font-f-lausanne-300)'] uppercase tracking-widest text-white/50">Outfit Items</h3>
+                                        <h3 className="text-xl font-[var(--font-f-lausanne-300)] uppercase tracking-widest text-white/50">Outfit Items</h3>
                                     </div>
                                     <div className="flex gap-4">
                                         {previousItems.length > 0 ? (
