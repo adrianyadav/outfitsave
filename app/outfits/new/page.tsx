@@ -241,7 +241,7 @@ export default function NewOutfitPage() {
                                         <h3 className="text-xl font-['var(--font-f-lausanne-300)'] uppercase tracking-widest text-white/50">Outfit Items</h3>
                                     </div>
                                     <div className="flex gap-4">
-                                        {previousItems.length > 0 && (
+                                        {previousItems.length > 0 ? (
                                             <button
                                                 type="button"
                                                 onClick={() => setShowQuickAdd(!showQuickAdd)}
@@ -251,7 +251,7 @@ export default function NewOutfitPage() {
                                             >
                                                 {isLoadingPreviousItems ? "Loading..." : "Quick Add"}
                                             </button>
-                                        )}
+                                        ) : null}
                                         <button
                                             type="button"
                                             onClick={addItem}
@@ -265,7 +265,7 @@ export default function NewOutfitPage() {
                                 </div>
 
                                 {/* Quick Add Dropdown */}
-                                {showQuickAdd && previousItems.length > 0 && (
+                                {showQuickAdd && previousItems.length > 0 ? (
                                     <div className="p-6 border border-white/10 bg-white/5" data-testid="quick-add-dropdown">
                                         <p className="mb-4 text-sm text-[var(--color-white-06)]">
                                             Click on an item to add it to your outfit:
@@ -292,15 +292,15 @@ export default function NewOutfitPage() {
                                             ))}
                                         </div>
                                     </div>
-                                )}
+                                ) : null}
 
-                                {items.length === 0 && (
+                                {items.length === 0 ? (
                                     <div className="text-center py-16 border border-dashed border-white/20">
                                         <p className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)]">
                                             No items added. Include individual pieces for tracking.
                                         </p>
                                     </div>
-                                )}
+                                ) : null}
 
                                 {sortItemsByCategory(items).map((item, index) => (
                                     <OutfitItemCard

@@ -136,7 +136,7 @@ export default function SettingsPage() {
                         <p className="text-xl tracking-wide">{session?.user?.name}</p>
                     </div>
 
-                    {hasPassword !== null && (
+                    {hasPassword !== null ? (
                         <div className="space-y-2">
                             <Label className="uppercase tracking-widest text-[10px] text-[var(--color-white-06)]">Password Status</Label>
                             <div className="flex items-center gap-2">
@@ -153,9 +153,9 @@ export default function SettingsPage() {
                                 )}
                             </div>
                         </div>
-                    )}
+                    ) : null}
 
-                    {hasPassword === false && (
+                    {hasPassword === false ? (
                         <div className="mt-16 p-8 border border-white/10 bg-white/5 relative overflow-hidden group">
                             <h2 className="text-2xl font-['var(--font-f-lausanne-300)'] mb-2">Set a Password</h2>
                             <p className="text-sm text-[var(--color-white-06)] mb-8 max-w-sm">
@@ -198,7 +198,7 @@ export default function SettingsPage() {
                                 </button>
                             </form>
                         </div>
-                    )}
+                    ) : null}
                 </div>
             </div>
         </div>

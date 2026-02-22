@@ -46,11 +46,11 @@ export default function Header() {
             </Link>
           )}
 
-          {isDevelopment && (
+          {isDevelopment ? (
             <Link href="/docs" className="hover:opacity-70 transition-opacity text-white/50">
               Docs
             </Link>
-          )}
+          ) : null}
         </div>
 
         {/* Mobile Menu Button - Visible only on mobile */}
@@ -68,7 +68,7 @@ export default function Header() {
       </nav>
 
       {/* Mobile Navigation Menu */}
-      {isMobileMenuOpen && (
+      {isMobileMenuOpen ? (
         <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-t border-white/10 h-screen">
           <div className="px-6 py-8 flex flex-col space-y-6 text-white text-lg font-[var(--font-f-lausanne-400)]">
             <Link href="/outfits" onClick={closeMobileMenu} className="hover:opacity-70 transition-opacity">
@@ -107,7 +107,7 @@ export default function Header() {
             )}
           </div>
         </div>
-      )}
+      ) : null}
     </header>
   );
 }

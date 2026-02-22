@@ -57,7 +57,7 @@ export default async function SharedOutfitPage({ params }: SharedOutfitPageProps
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {/* Outfit Image */}
-                    {outfit.imageUrl && (
+                    {outfit.imageUrl ? (
                         <div className="space-y-4">
                             <h2 className="text-2xl font-semibold">Outfit</h2>
                             <div className="aspect-square rounded-lg overflow-hidden bg-muted relative">
@@ -69,18 +69,18 @@ export default async function SharedOutfitPage({ params }: SharedOutfitPageProps
                                 />
                             </div>
                         </div>
-                    )}
+                    ) : null}
 
                     {/* Outfit Details */}
                     <div className="space-y-6">
-                        {outfit.description && (
+                        {outfit.description ? (
                             <div>
                                 <h2 className="text-2xl font-semibold mb-3">Description</h2>
                                 <p className="text-muted-foreground" data-testid="shared-outfit-description">{outfit.description}</p>
                             </div>
-                        )}
+                        ) : null}
 
-                        {outfit.tags.length > 0 && (
+                        {outfit.tags.length > 0 ? (
                             <div>
                                 <h2 className="text-2xl font-semibold mb-3">Tags</h2>
                                 <div className="flex flex-wrap gap-2">
@@ -91,9 +91,9 @@ export default async function SharedOutfitPage({ params }: SharedOutfitPageProps
                                     ))}
                                 </div>
                             </div>
-                        )}
+                        ) : null}
 
-                        {outfit.items.length > 0 && (
+                        {outfit.items.length > 0 ? (
                             <div>
                                 <h2 className="text-2xl font-semibold mb-3">Items</h2>
                                 <div className="space-y-4">
@@ -126,7 +126,7 @@ export default async function SharedOutfitPage({ params }: SharedOutfitPageProps
                                     ))}
                                 </div>
                             </div>
-                        )}
+                        ) : null}
                     </div>
                 </div>
             </div>

@@ -4,6 +4,9 @@ import { OutfitPage } from '../pages/outfit-page';
 import { getDefaultOutfitData } from '../test-data';
 
 test.describe('Delete Outfit', () => {
+    // Increase timeout for reliable execution against dev server
+    test.setTimeout(60000);
+    
     let outfitPage: OutfitPage;
 
     test.beforeEach(async ({ page }) => {

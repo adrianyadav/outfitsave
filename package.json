@@ -15,7 +15,7 @@
     "test:prod": "playwright test --config=playwright.config.prod.ts --headed",
     "db:reset": "./scripts/reset-db.sh",
     "db:deploy:prod": "./scripts/deploy-prod-schema.sh",
-    "db:cleanup:outfits": "npx tsx scripts/delete-test-outfits.ts",
+    "db:cleanup:outfits": "npx -y dotenv-cli -e .env.local -- tsx scripts/delete-test-outfits.ts",
     "db:cleanup:prod:outfits": "./scripts/cleanup-prod-test-outfits.sh",
     "db:start": "chmod +x scripts/start-db.sh && ./scripts/start-db.sh",
     "db:wait": "npx wait-on tcp:5432",

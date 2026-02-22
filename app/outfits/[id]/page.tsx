@@ -202,7 +202,7 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
                                         outfit={outfit}
                                         onOutfitUpdated={handleOutfitUpdated}
                                     />
-                                    {!outfit.isPrivate && (
+                                    {!outfit.isPrivate ? (
                                         <button
                                             onClick={handleShare}
                                             disabled={isSharing}
@@ -211,11 +211,11 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
                                         >
                                             {isSharing ? "Sharing..." : "Share"}
                                         </button>
-                                    )}
+                                    ) : null}
                                 </>
                             ) : (
                                 <>
-                                    {!outfit.isPrivate && (
+                                    {!outfit.isPrivate ? (
                                         <button
                                             onClick={handleShare}
                                             disabled={isSharing}
@@ -224,8 +224,8 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
                                         >
                                             {isSharing ? "Sharing..." : "Share"}
                                         </button>
-                                    )}
-                                    {!outfit.isPrivate && session && (
+                                    ) : null}
+                                    {!outfit.isPrivate && session ? (
                                         <button
                                             onClick={handleSaveOutfit}
                                             disabled={isSaving}
@@ -234,7 +234,7 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
                                         >
                                             {isSaving ? "Saving..." : "Save to My Outfits"}
                                         </button>
-                                    )}
+                                    ) : null}
                                 </>
                             )}
                         </div>
@@ -256,7 +256,7 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
                     {/* Outfit Image */}
-                    {outfit.imageUrl && (
+                    {outfit.imageUrl ? (
                         <div className="lg:col-span-5">
                             <div className="relative rounded-none overflow-hidden aspect-[4/5] bg-white/5">
                                 <Image
@@ -272,18 +272,18 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
                                 />
                             </div>
                         </div>
-                    )}
+                    ) : null}
 
                     {/* Outfit Details */}
                     <div className="lg:col-span-7 flex flex-col pt-8 lg:pt-0">
-                        {outfit.description && (
+                        {outfit.description ? (
                             <div className="mb-12">
                                 <h2 className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)] mb-6">Description</h2>
                                 <p className="text-[clamp(1.2rem,1.5vw,2rem)] leading-relaxed text-white/90 font-light" data-testid="outfit-description">{outfit.description}</p>
                             </div>
-                        )}
+                        ) : null}
 
-                        {outfit.tags && outfit.tags.length > 0 && (
+                        {outfit.tags && outfit.tags.length > 0 ? (
                             <div className="mb-16">
                                 <h2 className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)] mb-6">Tags</h2>
                                 <div className="flex flex-wrap gap-2">
@@ -294,9 +294,9 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
                                     ))}
                                 </div>
                             </div>
-                        )}
+                        ) : null}
 
-                        {outfit.items && outfit.items.length > 0 && (
+                        {outfit.items && outfit.items.length > 0 ? (
                             <div>
                                 <h2 className="text-[10px] uppercase tracking-widest text-[var(--color-white-06)] mb-8 pb-4 border-b border-white/10 flex justify-between">
                                     <span>Pieces</span>
@@ -358,7 +358,7 @@ export default function OutfitPage({ params }: { params: Promise<{ id: string }>
                                     })}
                                 </div>
                             </div>
-                        )}
+                        ) : null}
                     </div>
                 </div>
             </div>

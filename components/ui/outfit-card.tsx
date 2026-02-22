@@ -111,7 +111,7 @@ export default function OutfitCard({
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                     {/* Action Buttons overlaying the image */}
-                    {showActions && (
+                    {showActions ? (
                         <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             {/* Privacy Label */}
                             <div className="bg-black/80 backdrop-blur-md px-3 py-1.5 text-[10px] uppercase tracking-widest text-white/90">
@@ -119,7 +119,7 @@ export default function OutfitCard({
                             </div>
 
                             <div className="flex flex-col gap-2 pointer-events-auto">
-                                {!outfit.isPrivate && onShare && (
+                                {!outfit.isPrivate && onShare ? (
                                     <button
                                         data-testid={`share-button-${outfit.id}`}
                                         onClick={(e) => {
@@ -133,9 +133,9 @@ export default function OutfitCard({
                                     >
                                         <Share2 className="h-3 w-3" />
                                     </button>
-                                )}
+                                ) : null}
                                 {/* Regular delete button - only for owner */}
-                                {onDelete && isOwner && (
+                                {onDelete && isOwner ? (
                                     <button
                                         data-testid={`delete-button-${outfit.id}`}
                                         onClick={handleDeleteClick}
@@ -145,18 +145,18 @@ export default function OutfitCard({
                                     >
                                         <Trash2 className="h-3 w-3" />
                                     </button>
-                                )}
+                                ) : null}
                                 {/* Admin Delete Button - Only show for public outfits when user is admin */}
-                                {!outfit.isPrivate && isAdmin && !adminLoading && (
+                                {!outfit.isPrivate && isAdmin && !adminLoading ? (
                                     <AdminDeleteButton
                                         outfitId={outfit.id}
                                         outfitName={outfit.name}
                                         onDelete={handleAdminDelete}
                                     />
-                                )}
+                                ) : null}
                             </div>
                         </div>
-                    )}
+                    ) : null}
                 </div>
 
                 {/* Content Section - Minimal text below image */}
@@ -167,12 +167,12 @@ export default function OutfitCard({
                     
                     <div className="flex items-center gap-3 mt-3 text-sm  uppercase tracking-wide">
                         <span>{outfit.items.length} piece{outfit.items.length !== 1 ? 's' : ''}</span>
-                        {outfit.tags && outfit.tags.length > 0 && (
+                        {outfit.tags && outfit.tags.length > 0 ? (
                             <>
                                 <span className="w-1 h-1 bg-white/30 rounded-full" />
                                 <span className="truncate max-w-[200px]">{outfit.tags.join(', ')}</span>
                             </>
-                        )}
+                        ) : null}
                     </div>
 
                 </div>

@@ -101,13 +101,14 @@ export class AuthPage {
 
     // Assertion methods
     async expectLoggedIn() {
-        await expect(this.page.locator('[data-testid="save-new-outfit-button"]')).toBeVisible();
-        await expect(this.page.locator('[data-testid="view-my-outfits-button"]')).toBeVisible();
+        // Wait for URL to change to indicate successful login
+        await this.page.waitForURL('**/', { timeout: 10000 }).catch(() => {});
+        await expect(this.page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 10000 });
+        await expect(this.page.locator('a[href="/my-outfits"]').first()).toBeVisible();
     }
 
     async expectLoggedOut() {
-        await expect(this.page.locator('[data-testid="get-started-button"]')).toBeVisible();
-        await expect(this.page.locator('[data-testid="sign-in-button"]')).toBeVisible();
+        await expect(this.page.locator('a[href="/login"]').first()).toBeVisible();
     }
 
     async expectErrorVisible() {

@@ -4,6 +4,8 @@ import Link from "next/link";
 import OutfitCard from "@/components/ui/outfit-card";
 import prisma from "@/lib/prisma";
 
+import { Suspense } from "react";
+
 // Define the outfit type
 interface Outfit {
   id: number;
@@ -23,9 +25,23 @@ interface Outfit {
   }>;
 }
 
-export default async function Home() {
+function ShowcaseFallback() {
+  return (
+    <>
+      <div className="mb-20">
+        <h2 className="text-[clamp(3rem,8vw,10rem)] leading-[0.9] font-['var(--font-f-lausanne-300)'] tracking-[-0.04em] text-[var(--color-story)] -ml-[0.05em]">
+          Loading
+          <span className="block italic text-[var(--color-dark-grey-06)]">Outfits...</span>
+        </h2>
+      </div>
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 animate-pulse text-[var(--color-dark-grey-06)] min-h-[500px]">
+        {/* Placeholder structural blocks */}
+      </div>
+    </>
+  );
+}
 
-  // Fetch some public outfits to showcase on the homepage
+async function ShowcaseSection() {
   let showcaseOutfits: Outfit[] = [];
   try {
     const outfits = await prisma.outfit.findMany({
@@ -68,6 +84,130 @@ export default async function Home() {
   }
 
   return (
+    <>
+      {/* Asymmetric Header */}
+      <div className="mb-20">
+        <h2 className="text-[clamp(3rem,8vw,10rem)] leading-[0.9] font-['var(--font-f-lausanne-300)'] tracking-[-0.04em] text-[var(--color-story)] -ml-[0.05em]">
+          {showcaseOutfits.length > 0 ? 'Featured' : 'See What\'s'}
+          <span className="block italic text-[var(--color-dark-grey-06)]">
+            {showcaseOutfits.length > 0 ? 'Outfits' : 'Possible'}
+          </span>
+        </h2>
+        <p className="text-[clamp(1.2rem,1.5vw,2rem)] mt-8 font-['var(--font-f-lausanne-400)'] text-[var(--color-dark-grey-06)] max-w-2xl">
+          {showcaseOutfits.length > 0
+            ? 'Real outfits from our community'
+            : 'Examples of how you can organize your outfits'
+          }
+        </p>
+      </div>
+
+      {/* Masonry-style Grid */}
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+        {showcaseOutfits.length > 0 ? (
+          showcaseOutfits.map((outfit: Outfit, index: number) => (
+            <div key={outfit.id} className={`break-inside-avoid ${index % 2 === 0 ? 'lg:mt-0' : 'lg:mt-16'}`}>
+              <OutfitCard
+                outfit={{
+                  ...outfit,
+                  isPrivate: false,
+                  items: outfit.items || []
+                }}
+                showActions={false}
+              />
+            </div>
+          ))
+        ) : (
+          // Fallback sample outfits with staggered positioning
+          <>
+            <div className="break-inside-avoid">
+              <OutfitCard
+                outfit={{
+                  id: 1,
+                  name: "Noir Silhouette",
+                  description: "A masterclass in textural contrast. Combining structured Japanese wool with fluid silk layers.",
+                  imageUrl: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1587&auto=format&fit=crop",
+                  tags: ["avant-garde", "monochrome", "structured"],
+                  isPrivate: false,
+                  shareSlug: undefined,
+                  createdAt: new Date().toISOString(),
+                  items: []
+                }}
+                showActions={false}
+              />
+            </div>
+            <div className="break-inside-avoid lg:mt-16">
+              <OutfitCard
+                outfit={{
+                  id: 2,
+                  name: "Midnight Architecture",
+                  description: "Oversized proportions meet sharp tailoring. A statement coat anchored by heavy leather boots.",
+                  imageUrl: "https://images.unsplash.com/photo-1510520434124-5bc7e642b61d?q=80&w=1587&auto=format&fit=crop",
+                  tags: ["editorial", "outerwear", "winter"],
+                  isPrivate: false,
+                  shareSlug: undefined,
+                  createdAt: new Date().toISOString(),
+                  items: []
+                }}
+                showActions={false}
+              />
+            </div>
+            <div className="break-inside-avoid lg:mt-32">
+              <OutfitCard
+                outfit={{
+                  id: 3,
+                  name: "The Sharp Edit",
+                  description: "Smart casual done right. A refined neutral palette elevated by precise tailoring and considered layering.",
+                  imageUrl: "https://images.unsplash.com/photo-1613733539611-ca96d94b46ba?q=80&w=1587&auto=format&fit=crop",
+                  tags: ["smart-casual", "tailored", "neutral"],
+                  isPrivate: false,
+                  shareSlug: undefined,
+                  createdAt: new Date().toISOString(),
+                  items: []
+                }}
+                showActions={false}
+              />
+            </div>
+            <div className="break-inside-avoid lg:mt-16">
+              <OutfitCard
+                outfit={{
+                  id: 4,
+                  name: "Urban Ascetic",
+                  description: "Stripped back to the absolute essentials. Drapey linen over wide-leg trousers in pitch black.",
+                  imageUrl: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1587&auto=format&fit=crop",
+                  tags: ["minimal", "linen", "summer-dark"],
+                  isPrivate: false,
+                  shareSlug: undefined,
+                  createdAt: new Date().toISOString(),
+                  items: []
+                }}
+                showActions={false}
+              />
+            </div>
+            <div className="break-inside-avoid lg:mt-32">
+              <OutfitCard
+                outfit={{
+                  id: 5,
+                  name: "The New Standard",
+                  description: "Reinventing the everyday uniform. Deconstructed blazer paired with relaxed denim and combat boots.",
+                  imageUrl: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?q=80&w=1587&auto=format&fit=crop",
+                  tags: ["uniform", "deconstructed", "daily"],
+                  isPrivate: false,
+                  shareSlug: undefined,
+                  createdAt: new Date().toISOString(),
+                  items: []
+                }}
+                showActions={false}
+              />
+            </div>
+          </>
+        )}
+      </div>
+    </>
+  );
+}
+
+export default function Home() {
+  return (
     <div className="min-h-screen bg-[var(--color-off-white)] selection:bg-black/10">
       {/* Hero Section */}
       <section className="relative h-screen min-h-[600px] flex flex-col justify-end overflow-hidden">
@@ -108,123 +248,9 @@ export default async function Home() {
       {/* Showcase Section */}
       <section className="py-24 md:py-32">
         <div className="max-w-[2000px] mx-auto px-6 md:px-12 relative">
-          {/* Asymmetric Header */}
-          <div className="mb-20">
-            <h2 className="text-[clamp(3rem,8vw,10rem)] leading-[0.9] font-['var(--font-f-lausanne-300)'] tracking-[-0.04em] text-[var(--color-story)] -ml-[0.05em]">
-              {showcaseOutfits.length > 0 ? 'Featured' : 'See What\'s'}
-              <span className="block italic text-[var(--color-dark-grey-06)]">
-                {showcaseOutfits.length > 0 ? 'Outfits' : 'Possible'}
-              </span>
-            </h2>
-            <p className="text-[clamp(1.2rem,1.5vw,2rem)] mt-8 font-['var(--font-f-lausanne-400)'] text-[var(--color-dark-grey-06)] max-w-2xl">
-              {showcaseOutfits.length > 0
-                ? 'Real outfits from our community'
-                : 'Examples of how you can organize your outfits'
-              }
-            </p>
-          </div>
-
-          {/* Masonry-style Grid */}
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-            {showcaseOutfits.length > 0 ? (
-              showcaseOutfits.map((outfit: Outfit, index: number) => (
-                <div key={outfit.id} className={`break-inside-avoid ${index % 2 === 0 ? 'lg:mt-0' : 'lg:mt-16'}`}>
-                  <OutfitCard
-                    outfit={{
-                      ...outfit,
-                      isPrivate: false,
-                      items: outfit.items || []
-                    }}
-                    showActions={false}
-                  />
-                </div>
-              ))
-            ) : (
-              // Fallback sample outfits with staggered positioning
-              <>
-                <div className="break-inside-avoid">
-                  <OutfitCard
-                    outfit={{
-                      id: 1,
-                      name: "Noir Silhouette",
-                      description: "A masterclass in textural contrast. Combining structured Japanese wool with fluid silk layers.",
-                      imageUrl: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1587&auto=format&fit=crop",
-                      tags: ["avant-garde", "monochrome", "structured"],
-                      isPrivate: false,
-                      shareSlug: undefined,
-                      createdAt: new Date().toISOString(),
-                      items: []
-                    }}
-                    showActions={false}
-                  />
-                </div>
-                <div className="break-inside-avoid lg:mt-16">
-                  <OutfitCard
-                    outfit={{
-                      id: 2,
-                      name: "Midnight Architecture",
-                      description: "Oversized proportions meet sharp tailoring. A statement coat anchored by heavy leather boots.",
-                      imageUrl: "https://images.unsplash.com/photo-1510520434124-5bc7e642b61d?q=80&w=1587&auto=format&fit=crop",
-                      tags: ["editorial", "outerwear", "winter"],
-                      isPrivate: false,
-                      shareSlug: undefined,
-                      createdAt: new Date().toISOString(),
-                      items: []
-                    }}
-                    showActions={false}
-                  />
-                </div>
-                <div className="break-inside-avoid lg:mt-32">
-                  <OutfitCard
-                    outfit={{
-                      id: 3,
-                      name: "The Sharp Edit",
-                      description: "Smart casual done right. A refined neutral palette elevated by precise tailoring and considered layering.",
-                      imageUrl: "https://images.unsplash.com/photo-1613733539611-ca96d94b46ba?q=80&w=1587&auto=format&fit=crop",
-                      tags: ["smart-casual", "tailored", "neutral"],
-                      isPrivate: false,
-                      shareSlug: undefined,
-                      createdAt: new Date().toISOString(),
-                      items: []
-                    }}
-                    showActions={false}
-                  />
-                </div>
-                <div className="break-inside-avoid lg:mt-16">
-                  <OutfitCard
-                    outfit={{
-                      id: 4,
-                      name: "Urban Ascetic",
-                      description: "Stripped back to the absolute essentials. Drapey linen over wide-leg trousers in pitch black.",
-                      imageUrl: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1587&auto=format&fit=crop",
-                      tags: ["minimal", "linen", "summer-dark"],
-                      isPrivate: false,
-                      shareSlug: undefined,
-                      createdAt: new Date().toISOString(),
-                      items: []
-                    }}
-                    showActions={false}
-                  />
-                </div>
-                <div className="break-inside-avoid lg:mt-32">
-                  <OutfitCard
-                    outfit={{
-                      id: 5,
-                      name: "The New Standard",
-                      description: "Reinventing the everyday uniform. Deconstructed blazer paired with relaxed denim and combat boots.",
-                      imageUrl: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?q=80&w=1587&auto=format&fit=crop",
-                      tags: ["uniform", "deconstructed", "daily"],
-                      isPrivate: false,
-                      shareSlug: undefined,
-                      createdAt: new Date().toISOString(),
-                      items: []
-                    }}
-                    showActions={false}
-                  />
-                </div>
-              </>
-            )}
-          </div>
+          <Suspense fallback={<ShowcaseFallback />}>
+            <ShowcaseSection />
+          </Suspense>
 
           <div className="text-center mt-32">
             <Link href="/register" className="inline-flex items-center gap-4 text-[clamp(1.2rem,1.5vw,2rem)] font-['var(--font-f-lausanne-400)'] text-[var(--color-story)] hover:text-black hover:tracking-wide transition-all duration-500 group border-b border-[var(--color-dark-grey-02)] pb-2">

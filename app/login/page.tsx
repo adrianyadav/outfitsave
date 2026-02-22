@@ -102,7 +102,7 @@ export default function LoginPage() {
               />
             </div>
 
-            {error && (
+            {error ? (
               <div className="text-red-400 text-sm text-center" data-testid="error-message">
                 {error}
                 {error.includes("Google") && (
@@ -118,7 +118,7 @@ export default function LoginPage() {
                   </div>
                 )}
               </div>
-            )}
+            ) : null}
 
             <button 
                 type="submit" 

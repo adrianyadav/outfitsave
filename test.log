@@ -1,0 +1,23 @@
+[1A[2K[2m[WebServer] [22m
+
+[1A[2K[2m[WebServer] [22m[1m[33mwarn[39m[22m - The class `duration-[1.5s]` is ambiguous and matches multiple utilities.
+[2m[WebServer] [22m[1m[33mwarn[39m[22m - If this is content and not a class, replace it with `duration-&lsqb;1.5s&rsqb;` to silence this warning.
+
+[1A[2K[2m[WebServer] [22m
+[2m[WebServer] [22m[1m[33mwarn[39m[22m - The class `duration-[20s]` is ambiguous and matches multiple utilities.
+
+[1A[2K[2m[WebServer] [22m[1m[33mwarn[39m[22m - If this is content and not a class, replace it with `duration-&lsqb;20s&rsqb;` to silence this warning.
+
+[1A[2K[2m[WebServer] [22m
+
+[1A[2K[2m[WebServer] [22m[1m[33mwarn[39m[22m - The class `ease-[cubic-bezier(0.16,1,0.3,1)]` is ambiguous and matches multiple utilities.
+
+[1A[2K[2m[WebServer] [22m[1m[33mwarn[39m[22m - If this is content and not a class, replace it with `ease-&lsqb;cubic-bezier(0.16,1,0.3,1)&rsqb;` to silence this warning.
+
+Error: Process from config.webServer exited early.
+
+[1A[2K
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m

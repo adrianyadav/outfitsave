@@ -3,10 +3,10 @@ import { loginWithTestAccount, createOutfit, editOutfit } from '../utils';
 import { getDefaultOutfitData } from '../test-data';
 
 test.describe('Edit Outfit', () => {
-    // Increase timeout for CI environments
-    test.setTimeout(process.env.CI ? 60000 : 30000);
+    // Increase timeout for reliable execution against dev server
+    test.setTimeout(60000);
 
-    let createdOutfits: string[] = [];
+    const createdOutfits: string[] = [];
 
     test.beforeEach(async ({ page }) => {
         // Login with existing test account before each test

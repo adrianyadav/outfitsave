@@ -244,7 +244,7 @@ export default function EditOutfitForm({ outfit, onSave, onCancel, isLoading = f
                         <h3 className="text-xl font-['var(--font-f-lausanne-300)'] uppercase tracking-widest text-white/50">Outfit Items</h3>
                     </div>
                     <div className="flex gap-4">
-                        {previousItems.length > 0 && (
+                        {previousItems.length > 0 ? (
                             <button
                                 type="button"
                                 onClick={() => setShowQuickAdd(!showQuickAdd)}
@@ -254,7 +254,7 @@ export default function EditOutfitForm({ outfit, onSave, onCancel, isLoading = f
                             >
                                 {isLoadingPreviousItems ? "Loading..." : "Quick Add"}
                             </button>
-                        )}
+                        ) : null}
                         <button
                             type="button"
                             onClick={addItem}
@@ -268,7 +268,7 @@ export default function EditOutfitForm({ outfit, onSave, onCancel, isLoading = f
                 </div>
 
                 {/* Quick Add Dropdown */}
-                {showQuickAdd && previousItems.length > 0 && (
+                {showQuickAdd && previousItems.length > 0 ? (
                     <div className="p-6 border border-white/10 bg-white/5" data-testid="edit-quick-add-dropdown">
                         <p className="mb-4 text-sm text-[var(--color-white-06)]">
                             Click on an item to add it to your outfit:
@@ -295,7 +295,7 @@ export default function EditOutfitForm({ outfit, onSave, onCancel, isLoading = f
                             ))}
                         </div>
                     </div>
-                )}
+                ) : null}
 
             {/* Accordion for Items */}
                 {items.length > 0 ? (

@@ -134,9 +134,9 @@ export default function RegisterPage() {
               />
             </div>
 
-            {error && (
+            {error ? (
               <div className="text-red-400 text-sm text-center" data-testid="error-message">{error}</div>
-            )}
+            ) : null}
 
             <button 
                 type="submit" 

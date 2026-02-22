@@ -1,0 +1,48 @@
+
+Running 3 tests using 3 workers
+
+Attempting login with: { testEmail: [32m'test@example.com'[39m, testName: [32m'Test User'[39m }
+Attempting login with: { testEmail: [32m'test@example.com'[39m, testName: [32m'Test User'[39m }
+Attempting login with: { testEmail: [32m'test@example.com'[39m, testName: [32m'Test User'[39m }
+Navigated to login page, URL: http://localhost:3000/login
+Navigated to login page, URL: http://localhost:3000/login
+Navigated to login page, URL: http://localhost:3000/login
+Filled login form
+Filled login form
+Filled login form
+Login form submitted
+Navigation completed, current URL: http://localhost:3000/
+Login process completed, final URL: http://localhost:3000/
+Login form submitted
+Navigation completed, current URL: http://localhost:3000/
+Login process completed, final URL: http://localhost:3000/
+Login form submitted
+Navigation completed, current URL: http://localhost:3000/
+Login process completed, final URL: http://localhost:3000/
+  -  1 [chromium] › tests/outfits/save-outfit.spec.ts:35:9 › Save Outfit › should show save button for public outfits not owned by user
+  ✓  2 [chromium] › tests/outfits/save-outfit.spec.ts:16:9 › Save Outfit › should save a public outfit to my collection (17.8s)
+  ✓  3 [chromium] › tests/outfits/save-outfit.spec.ts:61:9 › Save Outfit › should not show save button for private outfits (18.7s)
+🧹 Running global teardown - cleaning up test outfits...
+
+> unpacked@0.1.0 db:cleanup:outfits
+> npx -y dotenv-cli -e .env.local -- tsx scripts/delete-test-outfits.ts
+
+🧹 Starting test outfits cleanup...
+�� Using database: postgresql://***:***@ep-blue-pond-aikvimkt-pooler.c-4.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+prisma:info Starting a postgresql pool with 17 connections.
+prisma:query SELECT "public"."Outfit"."id", "public"."Outfit"."createdAt", "public"."Outfit"."updatedAt", "public"."Outfit"."name", "public"."Outfit"."description", "public"."Outfit"."imageUrl", "public"."Outfit"."tags", "public"."Outfit"."userId", "public"."Outfit"."isPrivate", "public"."Outfit"."shareSlug" FROM "public"."Outfit" WHERE ("public"."Outfit"."tags" @> $1 OR "public"."Outfit"."tags" @> $2 OR "public"."Outfit"."tags" @> $3 OR "public"."Outfit"."tags" @> $4 OR "public"."Outfit"."tags" @> $5 OR "public"."Outfit"."tags" @> $6 OR "public"."Outfit"."tags" @> $7 OR "public"."Outfit"."tags" @> $8 OR "public"."Outfit"."name"::text LIKE $9 OR "public"."Outfit"."name" = $10) OFFSET $11
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."name" FROM "public"."User" WHERE "public"."User"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."OutfitItem"."id", "public"."OutfitItem"."createdAt", "public"."OutfitItem"."updatedAt", "public"."OutfitItem"."name", "public"."OutfitItem"."category"::text, "public"."OutfitItem"."description", "public"."OutfitItem"."purchaseUrl", "public"."OutfitItem"."imageUrl", "public"."OutfitItem"."outfitId" FROM "public"."OutfitItem" WHERE "public"."OutfitItem"."outfitId" IN ($1,$2) OFFSET $3
+📋 Found 2 outfits to delete:
+  - "Public Save Test Outfit 1771728514019" (Public) by test@example.com - test-related tag
+    Tags: [test, save, public]
+  - "Public Save Test Outfit 1771728514313" (Private) by test@example.com - test-related tag
+    Tags: [test, save, public]
+�� Safety check: Will delete outfits with test-related tags, "Test" in name, and "Summer Casual Outfit"
+prisma:query DELETE FROM "public"."Outfit" WHERE ("public"."Outfit"."tags" @> $1 OR "public"."Outfit"."tags" @> $2 OR "public"."Outfit"."tags" @> $3 OR "public"."Outfit"."tags" @> $4 OR "public"."Outfit"."tags" @> $5 OR "public"."Outfit"."tags" @> $6 OR "public"."Outfit"."tags" @> $7 OR "public"."Outfit"."tags" @> $8 OR "public"."Outfit"."name"::text LIKE $9 OR "public"."Outfit"."name" = $10)
+🗑️  Successfully deleted 2 outfits
+✅ Test outfits cleanup completed successfully!
+✅ Test outfits cleanup completed successfully
+
+  1 skipped
+  2 passed (31.7s)

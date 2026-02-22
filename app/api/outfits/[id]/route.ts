@@ -139,6 +139,14 @@ export async function PUT(
             }
         });
 
+        // Clean up incoming items to prevent ID insertion conflicts with auto-increment
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const itemsToCreate = (items || []).map((item: any) => {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const { id, outfitId, createdAt, updatedAt, ...rest } = item;
+            return rest;
+        });
+
         // Update the outfit
         const updatedOutfit = await prisma.outfit.update({
             where: {
@@ -151,7 +159,7 @@ export async function PUT(
                 tags: tags || [],
                 isPrivate: isPrivate || false,
                 items: {
-                    create: items || []
+                    create: itemsToCreate
                 }
             },
             include: {

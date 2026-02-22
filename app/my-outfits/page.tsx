@@ -181,7 +181,7 @@ function MyOutfitsList() {
                     )}
 
                     {/* Pagination Controls */}
-                    {totalPages > 1 && (
+                    {totalPages > 1 ? (
                         <div className="flex justify-center items-center space-x-6 mt-20 pt-10 border-t border-white/10 font-['var(--font-f-lausanne-400)']">
                             {page > 1 && (
                                 <Link 
@@ -203,7 +203,7 @@ function MyOutfitsList() {
                                 </Link>
                             )}
                         </div>
-                    )}
+                    ) : null}
                 </>
             )}
         </>

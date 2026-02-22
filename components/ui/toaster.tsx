@@ -20,9 +20,9 @@ export function Toaster() {
                     <Toast key={id} {...props}>
                         <div className="grid gap-1">
                             {title && <ToastTitle>{title}</ToastTitle>}
-                            {description && (
+                            {description ? (
                                 <ToastDescription>{description}</ToastDescription>
-                            )}
+                            ) : null}
                         </div>
                         {action}
                         <ToastClose />

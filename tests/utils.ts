@@ -112,7 +112,7 @@ class OutfitFormPage {
         // Select category using data-testid
         const categorySelect = this.page.locator(`[data-testid="item-category-select-${itemIndex}"]`);
         await categorySelect.click();
-        await this.page.locator(`[data-testid="item-category-option-${itemIndex}-${item.category}"]`).click();
+        await this.page.locator(`[data-testid="item-category-option-${itemIndex}-${item.category}"]`).click({ force: true });
 
         // Fill optional description
         if (item.description) {
@@ -408,7 +408,7 @@ export async function createOutfit(page: Page, options: CreateOutfitOptions = {}
         const currentUrl = page.url();
         if (currentUrl.includes('/add-outfit') || currentUrl.includes('/outfits/new')) {
             // Form submission might have failed, check for errors
-            const errorElement = page.locator('[data-testid="error-message"], .error, [role="alert"]');
+            const errorElement = page.locator('[data-testid="error-message"], .text-destructive');
             if (await errorElement.isVisible()) {
                 const errorText = await errorElement.textContent();
                 throw new Error(`Form submission failed: ${errorText}`);
@@ -425,7 +425,9 @@ export async function createOutfit(page: Page, options: CreateOutfitOptions = {}
     await page.waitForLoadState('networkidle');
 
     // Find the created outfit card and extract the ID from the href
-    const outfitCard = page.locator('a[href*="/outfits/"]').filter({ hasText: name });
+    // Use an exact text match instead of hasText to avoid strict mode violations
+    // where "Private Test" matches a search for "Test"
+    const outfitCard = page.locator(`a[href*="/outfits/"][data-outfit-name="${name}"]`).first();
     await expect(outfitCard).toBeVisible();
 
     // Extract outfit ID from the href attribute
